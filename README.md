@@ -1,2 +1,2 @@
 # vilius-portfolio
-This is my portfolio, feel free to visit it [here](viliusalaunis.lt).
+This is my portfolio, feel free to visit it [here](www.viliusalaunis.lt).
