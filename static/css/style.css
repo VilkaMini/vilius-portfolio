@@ -396,11 +396,24 @@ header {
 .portfolio__item {
     background: var(--clr-accent);
     overflow: hidden;
+    text-decoration: none;
 }
 
 .portfolio__img {
     transition: transform 750ms cubic-bezier(.5, 0, .5, 1),
     opacity 250ms linear;
+}
+
+.img__description {
+    position: relative;
+    font-size: var(--fs-h3);
+    margin: 0;
+    top: -1em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: var(--clr-dark);
+    font-weight: var(--fw-bold);
 }
 
 .portfolio__item:focus {
@@ -409,7 +422,7 @@ header {
 }
 
 .portfolio__img:hover,
-.portfolio__item:focus .portfolio__img{
+.portfolio__item:focus .portfolio__img {
     transform: scale(1.2);
     opacity: 0.5;
 }
