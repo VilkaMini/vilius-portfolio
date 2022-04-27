@@ -1,2 +1,5 @@
 # vilius-portfolio
-This is my portfolio, feel free to visit it [here](http://www.willalone.com).
+This repository contains the code for my personal portfolio.
+
+## Usage:
+Feel free to visit my [portfolio](http://willalone.com/).
