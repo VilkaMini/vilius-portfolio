@@ -4,7 +4,7 @@ app = Flask(__name__, static_url_path = "", static_folder = 'static/')
 
 @app.route("/", methods=["GET"])
 def portfolio():
-    return render_template('index.html')
+    return render_template('chatgpt.html')
 
 """
 @app.route("/gamedev", methods=["GET"])

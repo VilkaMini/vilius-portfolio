@@ -1,0 +1,24 @@
+html {
+    background-color: #111111;
+}
+
+h1 {
+    color: #DFC752;
+    margin: auto;
+}
+
+.intro {
+    width: 1000px;
+    height: 100px;
+    background-color: rebeccapurple;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.about {
+    width: 1000px;
+    height: 100px;
+    background-color: azure;
+    margin: 1em auto auto;
+}
