@@ -77,10 +77,12 @@ nav h2 {
 
 #projects {
   display: grid;
-  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
   align-items: center;
   justify-items: center;
+  padding: 0 20px; /* Add padding to the sides */
+  margin-bottom: 60px;
 }
 
 .project {
@@ -88,7 +90,8 @@ nav h2 {
   padding: 20px;
   border-radius: 5px;
   text-align: center;
-  width: 90%;
+  width: 100%; /* Set the width to 100% */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
 }
 
 .project h3 {
@@ -98,6 +101,11 @@ nav h2 {
 
 .project p {
   color: #ccc;
+}
+
+.project-image {
+  max-width: 100%;
+  height: auto;
 }
 
 footer {
