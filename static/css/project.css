@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.full-width-section {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #444;
+}
+
+/* SOCIAL LINKS */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links a {
+  color: #ccc;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+
+/* NAV BAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  height: 70px;
+}
+
+.nav-middle {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-middle h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.nav-left img {
+  max-height: 80px;
+  margin-left: 20px;
+}
+
+.nav-right {
+  max-height: 80px;
+  margin-right: 20px;
+}
+
+/* ABOUT Project */
+
+#about {
+  padding: 50px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/terranova1.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 300px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; /* Align items at the top */
+  margin-top: 70px; /* Adjust for the height of the nav bar */
+  padding: 0 20px;
+}
+
+.about-left {
+  flex: 0 0 300px;
+  margin-right: 40px;
+  margin-top: 20px; /* Adjust the margin to create space from the top */
+}
+
+.about-left img {
+  width: 100%;
+  height: auto;
+}
+
+.about-right {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  max-width: 600px; /* Adjust the width as desired */
+}
+
+.about-right h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-right p {
+  font-size: 18px;
+  line-height: 1.5;
+}

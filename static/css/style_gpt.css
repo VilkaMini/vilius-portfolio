@@ -61,6 +61,15 @@ body {
   line-height: 1.5;
 }
 
+.project-left h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-left h2 a:hover {
+  color: #ccc;
+}
+
 .project-right img {
   height: auto;
   max-width: 400px; /* Adjust the maximum width of the image */
@@ -139,6 +148,15 @@ body {
 .project-right-left h2 {
   font-size: 24px;
   margin-bottom: 10px;
+}
+
+.project-right-left h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-right-left h2 a:hover {
+  color: #ccc;
 }
 
 .project-right-left p {
@@ -306,8 +324,6 @@ nav {
   max-height: 80px;
   margin-right: 20px;
 }
-
-/* --------------------------------- */
 
 /* SOCIAL LINKS */
 
