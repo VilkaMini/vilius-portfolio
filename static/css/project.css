@@ -195,7 +195,9 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  max-width: 800px;
   padding: 0 20px;
+  margin: 0 auto;
 }
 
 .game-description-text {
@@ -203,6 +205,7 @@ nav {
   text-align: left;
   color: #fff;
   max-width: 400px;
+  margin-bottom: 20px;
 }
 
 .game-description-text h2 {
@@ -218,21 +221,38 @@ nav {
 .game-description-image {
   flex: 0 0 400px;
   margin-left: 40px;
-  border: 2px solid #fff; /* Add border styling */
-  border-radius: 10px; /* Add rounded corners */
-  overflow: hidden;
 }
 
 .game-description-image img {
   width: 100%;
   height: auto;
   border-radius: 10px;
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
+}
+
+/* Mobile Responsive Styles */
+@media only screen and (max-width: 800px) {
+  #game-description {
+    height: auto; /* Set height to auto for increased visibility */
+  }
+
+  .game-description-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-description-image {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
 }
 
 /* Code Showcase */
 
 #development {
-  padding: 50px 0;
+  padding: 20px 0;
   background-color: #111;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
 }
@@ -251,6 +271,7 @@ nav {
   color: #fff;
   max-width: 400px;
 }
+
 
 .development-text h2 {
   font-size: 28px;
@@ -286,4 +307,43 @@ nav {
 .code-block {
   max-height: 700px;
   overflow-y: auto;
+}
+
+/* For WebKit-based browsers */
+.code-block::-webkit-scrollbar {
+  width: 8px;
+}
+
+.code-block::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.code-block::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.code-block::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.development-description-text {
+  flex: 1;
+  text-align: right;
+  color: #fff;
+  max-width: 400px;
+}
+
+.development-description-text p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.development-description-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
 }
