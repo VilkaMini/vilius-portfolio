@@ -70,11 +70,6 @@ body {
   color: #ccc;
 }
 
-.project-right img {
-  height: auto;
-  max-width: 400px; /* Adjust the maximum width of the image */
-}
-
 .project-right {
   margin-top: 20px;
   text-align: center;
@@ -83,6 +78,10 @@ body {
 .project-right img {
   width: 100%;
   height: auto;
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
+  max-width: 400px; /* Adjust the maximum width of the image */
 }
 
 /* Project Tags */
@@ -167,6 +166,9 @@ body {
 .project-left-left img {
   height: auto;
   max-width: 400px; /* Adjust the maximum width of the image */
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
 }
 
 .project-left-left {
@@ -253,6 +255,9 @@ body {
 .about-left img {
   width: 100%;
   height: auto;
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
 }
 
 .about-right {
