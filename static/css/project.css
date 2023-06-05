@@ -22,7 +22,6 @@ body {
 .full-width-section {
   width: 100%;
   padding: 50px 0;
-  background-color: #444;
 }
 
 /* SOCIAL LINKS */
@@ -346,4 +345,58 @@ nav {
 .development-description-text h2 {
   font-size: 28px;
   margin-bottom: 10px;
+}
+
+.mirrored-section {
+  flex-direction: row-reverse;
+}
+
+.mirrored-section .development-container {
+  flex-direction: row;
+}
+
+.mirrored-section .development-text,
+.mirrored-section .development-description-text {
+  width: 50%;
+}
+
+.mirrored-text {
+  text-align: right;
+}
+
+.development-description-text-mirrored {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  max-width: 400px;
+}
+
+.development-description-text-mirrored p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.development-description-text-mirrored h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.development-image-mirrored {
+  flex: 0 0 400px;
+  margin-right: 40px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.development-image-mirrored img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+#development-second {
+  padding: 20px 0;
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
 }
