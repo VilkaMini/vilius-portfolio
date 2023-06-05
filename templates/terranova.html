@@ -56,7 +56,7 @@
               <p>As an only programmer I was responsible for 100% of the game's code. I quickly mastered gamemaker language and was able to code essential game features like: <strong>Dialogue system</strong>, <strong>Fluent Movement</strong>, <strong>Inventory system</strong>.</p>
             </div>
             <div class="game-description-image">
-              <img src="/img/TerranovaMapGif.gif" alt="Game Image">
+              <img src="/img/Terranova/TerranovaMapGif.gif" alt="Game Image">
             </div>
           </div>
         </section>
@@ -113,74 +113,86 @@ if (room == Villages && global.interacting){
                     <h2>Dialogue system</h2>
                     <p>The Dialogue system checks for an NPC name, condition of quest progression and item ownership in order to progress further in a task from specific NPC.<br><br>The script also ads item to the inventory if the quest has a return item.</p>
                     <div class="development-image">
-                        <img src="/img/TerranovaDialogueGif.gif" alt="Development Image">
+                        <img src="/img/Terranova/TerranovaDialogueGif.gif" alt="Development Image">
                     </div>
                 </div>
             </div>
         </section>
         <section id="development-second" class="full-width-section mirrored-section">
-        <div class="development-container">
-            <div class="development-description-text-mirrored">
-                <h2>Exit minigame</h2>
-                <p>The Exit minigame was made to keep players in the game longer and to provide a humorous side to the game.<br><br>The minigame has two stages, the first being just clicking the exit button, which changes position every frame and the second one being the same but the circle radius expands making it harder to spam the one button constantly.</p>
-                <div class="development-image-mirrored">
-                    <img src="/img/TerranovaExitGif.gif" alt="Terranova Exit image">
+            <div class="development-container">
+                <div class="development-description-text-mirrored">
+                    <h2>Exit minigame</h2>
+                    <p>The Exit minigame was made to keep players in the game longer and to provide a humorous side to the game.<br><br>The minigame has two stages, the first being just clicking the exit button, which changes position every frame and the second one being the same but the circle radius expands making it harder to spam the one button constantly.</p>
+                    <div class="development-image-mirrored">
+                        <img src="/img/Terranova/TerranovaExitGif.gif" alt="Terranova Exit image">
+                    </div>
+                </div>
+                <div class="development-text mirrored-text">
+                    <pre class="code-block">
+                        <code class="language-gml">
+    // If exit button clicked create a minigame of exit
+    _diameter = 300;
+    _centerX = 683;
+    _centerY = 380;
+    _rotation = 0.0;
+    _rotMove = 0.00;
+    _incSize = 1;
+
+    // First circle was completed
+    _round2 = false;
+
+    _centerX += 5;
+
+    if (_round2 && _diameter <= 400){
+        _diameter += _incSize;
+    }
+
+    if (global.exit_clicked == true){
+        if (_rotMove >= 1){
+            _rotMove = 0;
+        }
+        if (_rotation >= 1){
+            _rotation = 0;
+        }
+        _real_exit_position = irandom(5);
+        for (var i=0; i<10; i++){
+            _butX = _centerX+_diameter*cos((_rotation+_rotMove)*2*pi);
+            _butY = _centerY+_diameter*sin((_rotation+_rotMove)*2*pi);
+            if (i == _real_exit_position){
+                if (_round2){
+                    instance_create_layer(_butX, _butY, "Instances", button, {
+                        buttonNumber: 5
+                    })
+                }
+                instance_create_layer(_butX, _butY, "Instances", button, {
+                    buttonNumber: 4
+                });
+            }
+            else {
+                instance_create_layer(_butX, _butY, "Instances", button, {
+                    buttonNumber: 3
+                });
+            }
+            _rotation += 0.1;
+        }
+        _rotMove += 0.005;
+    }
+                            </code>
+                        </pre>
                 </div>
             </div>
-            <div class="development-text mirrored-text">
-                <pre class="code-block">
-                    <code class="language-gml">
-// If exit button clicked create a minigame of exit
-_diameter = 300;
-_centerX = 683;
-_centerY = 380;
-_rotation = 0.0;
-_rotMove = 0.00;
-_incSize = 1;
-
-// First circle was completed
-_round2 = false;
-
-_centerX += 5;
-
-if (_round2 && _diameter <= 400){
-	_diameter += _incSize;
-}
-
-if (global.exit_clicked == true){
-	if (_rotMove >= 1){
-		_rotMove = 0;
-	}
-	if (_rotation >= 1){
-		_rotation = 0;
-	}
-	_real_exit_position = irandom(5);
-	for (var i=0; i<10; i++){
-		_butX = _centerX+_diameter*cos((_rotation+_rotMove)*2*pi);
-		_butY = _centerY+_diameter*sin((_rotation+_rotMove)*2*pi);
-		if (i == _real_exit_position){
-			if (_round2){
-				instance_create_layer(_butX, _butY, "Instances", button, {
-					buttonNumber: 5
-				})
-			}
-			instance_create_layer(_butX, _butY, "Instances", button, {
-				buttonNumber: 4
-			});
-		}
-		else {
-			instance_create_layer(_butX, _butY, "Instances", button, {
-				buttonNumber: 3
-			});
-		}
-		_rotation += 0.1;
-	}
-	_rotMove += 0.005;
-}
-                        </code>
-                    </pre>
-                </div>
-            </div>
+        </section>
+        <section id="picture-showcase" class="full-width-section">
+              <div class="picture-showcase-container">
+                    <h2>Game Screenshots</h2>
+                    <div class="picture-showcase-images">
+                        <img src="/img/Terranova/TerranovaDialogShowcase1.png" alt="Showcase Image 1">
+                        <img src="/img/Terranova/terranovaPicture1.png" alt="Showcase Image 2">
+                        <img src="/img/Terranova/terranovaPicture2.png" alt="Showcase Image 3">
+                        <img src="/img/Terranova/terranovaPicture3.png" alt="Showcase Image 4">
+                        <img src="/img/Terranova/terranovaPicture4.png" alt="Showcase Image 5">
+                    </div>
+              </div>
         </section>
     </div>
 </body>

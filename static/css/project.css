@@ -84,7 +84,7 @@ nav {
 
 #about {
   padding: 50px 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/terranova1.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Terranova/terranovaPicture2.png");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -303,6 +303,23 @@ nav {
   border-radius: 10px;
 }
 
+.development-description-text {
+  flex: 1;
+  text-align: right;
+  color: #fff;
+  max-width: 400px;
+}
+
+.development-description-text p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.development-description-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
 .code-block {
   max-height: 700px;
   overflow-y: auto;
@@ -330,39 +347,7 @@ nav {
   height: 8px;
 }
 
-.development-description-text {
-  flex: 1;
-  text-align: right;
-  color: #fff;
-  max-width: 400px;
-}
-
-.development-description-text p {
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.development-description-text h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.mirrored-section {
-  flex-direction: row-reverse;
-}
-
-.mirrored-section .development-container {
-  flex-direction: row;
-}
-
-.mirrored-section .development-text,
-.mirrored-section .development-description-text {
-  width: 50%;
-}
-
-.mirrored-text {
-  text-align: right;
-}
+/* Code Showcase Mirrored */
 
 .development-description-text-mirrored {
   flex: 1;
@@ -399,4 +384,57 @@ nav {
   padding: 20px 0;
   background-color: #111;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+}
+
+@media (max-width: 800px) {
+  .development-container {
+    flex-direction: column;
+  }
+
+  .text-section {
+    order: 2;
+    margin-top: 20px;
+  }
+
+  .image-section {
+    order: 1;
+    margin-top: 0;
+  }
+}
+
+
+#picture-showcase {
+  padding: 20px 0;
+  background-color: #111;
+  color: #fff;
+}
+
+.picture-showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.picture-showcase-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.picture-showcase-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.picture-showcase-images img {
+  width: 400px;
+  height: auto;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  overflow: hidden;
 }
