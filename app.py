@@ -8,7 +8,7 @@ def portfolio():
 
 @app.route("/wildlandsinteractiveexperience/", methods=["GET"])
 def wildlandsexperience():
-    return render_template('wildlandsinteractiveexperience.html')
+    return render_template('wildlandsexperience.html')
 
 @app.route("/terranova/", methods=["GET"])
 def terranova():
