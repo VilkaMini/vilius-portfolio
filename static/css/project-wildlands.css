@@ -1,0 +1,442 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.full-width-section {
+  width: 100%;
+  padding: 50px 0;
+}
+
+/* SOCIAL LINKS */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links a {
+  color: #ccc;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+
+/* NAV BAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  height: 70px;
+}
+
+.nav-middle {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-middle h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.nav-left img {
+  max-height: 80px;
+  margin-left: 20px;
+}
+
+.nav-right {
+  max-height: 80px;
+  margin-right: 20px;
+}
+
+/* ABOUT Project */
+
+#about {
+  padding: 50px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/WildlandsExperience/WildlandsRhinoPicture1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 300px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; /* Align items at the top */
+  margin-top: 70px; /* Adjust for the height of the nav bar */
+  padding: 0 20px;
+}
+
+.about-left {
+  flex: 0 0 300px;
+  margin-right: 40px;
+  margin-top: 20px; /* Adjust the margin to create space from the top */
+}
+
+.about-left img {
+  width: 100%;
+  height: auto;
+}
+
+.about-right {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  max-width: 600px; /* Adjust the width as desired */
+}
+
+.about-right h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.about-right p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Project Details section */
+
+#project-details {
+  padding: 20px 0;
+  background-color: #111;
+  height: auto; /* Adjust the height to "auto" for dynamic height */
+  display: flex;
+  flex-direction: column; /* Display the details in a column */
+  justify-content: center;
+  align-items: center; /* Center the items vertically */
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+}
+
+.project-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Center the items horizontally */
+  padding: 0 20px;
+}
+
+.project-detail {
+  text-align: center;
+  color: #fff;
+  max-width: 300px;
+  min-width: 150px;
+  margin: 40px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.project-detail h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.project-detail p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .project-detail {
+    flex-basis: 100%; /* Set the width to 100% on smaller screens */
+    margin: 30px 0; /* Adjust the margin to create space between elements */
+  }
+}
+
+/* Game Description */
+
+#game-description {
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-description-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.game-description-text {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.game-description-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.game-description-text p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.game-description-image {
+  flex: 0 0 400px;
+  margin-left: 40px;
+}
+
+.game-description-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
+}
+
+/* Mobile Responsive Styles */
+@media only screen and (max-width: 800px) {
+  #game-description {
+    height: auto; /* Set height to auto for increased visibility */
+  }
+
+  .game-description-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-description-image {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+}
+
+/* Code Showcase */
+
+#development {
+  padding: 20px 0;
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+}
+
+.development-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.development-text {
+  flex: 1;
+  text-align: left; /* Align the text to the right */
+  color: #fff;
+  max-width: 400px;
+}
+
+
+.development-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.development-text pre {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 5px;
+  overflow-x: auto;
+  overflow-y: auto
+}
+
+.development-text code {
+  color: #fff;
+}
+
+.development-image {
+  flex: 0 0 400px;
+  margin-left: 40px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.development-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.development-description-text {
+  flex: 1;
+  text-align: right;
+  color: #fff;
+  max-width: 400px;
+}
+
+.development-description-text p {
+  margin-left: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.development-description-text h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.code-block {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+/* For WebKit-based browsers */
+.code-block::-webkit-scrollbar {
+  width: 8px;
+}
+
+.code-block::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.code-block::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.code-block::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Code Showcase Mirrored */
+
+.development-description-text-mirrored {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  max-width: 400px;
+}
+
+.development-description-text-mirrored p {
+  margin-right: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.development-description-text-mirrored h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.development-image-mirrored {
+  flex: 0 0 400px;
+  margin-right: 40px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.development-image-mirrored img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+#development-second {
+  padding: 20px 0;
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+}
+
+@media (max-width: 800px) {
+  .development-container {
+    flex-direction: column;
+  }
+
+  .text-section {
+    order: 2;
+    margin-top: 20px;
+  }
+
+  .image-section {
+    order: 1;
+    margin-top: 0;
+  }
+}
+
+
+#picture-showcase {
+  padding: 20px 0;
+  background-color: #111;
+  color: #fff;
+}
+
+.picture-showcase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.picture-showcase-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.picture-showcase-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.picture-showcase-images img {
+  width: 380px;
+  height: auto;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  overflow: hidden;
+}

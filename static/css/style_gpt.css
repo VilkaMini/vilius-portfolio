@@ -1,0 +1,373 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.full-width-section {
+  width: 100%;
+  padding: 50px 0;
+  background-color: #444;
+}
+
+/* RIGHT PROJECT */
+#project-section-right {
+  padding: 50px 0;
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 20px;
+}
+
+.project-left {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  max-width: 600px;
+}
+
+.project-left h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.project-left p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.project-left h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-left h2 a:hover {
+  color: #ccc;
+}
+
+.project-right {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.project-right img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
+  max-width: 400px; /* Adjust the maximum width of the image */
+}
+
+/* Project Tags */
+.project-tags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px; /* Increase the top margin to create a bigger gap */
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  background-color: #333; /* Grey background color for the tags */
+  padding: 5px 10px; /* Adjust the padding as desired */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.tag-label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.tag-value {
+  font-weight: normal;
+}
+
+/* Project Links */
+.project-links {
+  margin-top: 20px; /* Increase the top margin to create a bigger gap */
+}
+
+.project-links a {
+  color: #ccc; /* Change the color to match the nav bar icon color */
+  font-size: 30px; /* Increase the font size for larger icons */
+  margin-right: 10px;
+}
+
+.project-links a:hover {
+  color: #fff;
+}
+
+/* LEFT PROJECT */
+#project-section-left {
+  padding: 50px 0;
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.project-right-left {
+  flex: 1;
+  text-align: right;
+  color: #fff;
+  max-width: 600px;
+}
+
+.project-right-left h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.project-right-left h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-right-left h2 a:hover {
+  color: #ccc;
+}
+
+.project-right-left p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.project-left-left img {
+  height: auto;
+  max-width: 400px; /* Adjust the maximum width of the image */
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
+}
+
+.project-left-left {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.project-left-left img {
+  width: 100%;
+  height: auto;
+}
+
+/* Project Tags */
+.project-tags-left {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-top: 30px; /* Increase the top margin to create a bigger gap */
+}
+
+.tag-left {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  background-color: #333; /* Grey background color for the tags */
+  padding: 5px 10px; /* Adjust the padding as desired */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.tag-label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.tag-value {
+  font-weight: normal;
+}
+
+/* Project Links */
+.project-links {
+  margin-top: 20px; /* Increase the top margin to create a bigger gap */
+}
+
+.project-links a {
+  color: #ccc; /* Change the color to match the nav bar icon color */
+  font-size: 30px; /* Increase the font size for larger icons */
+  margin-right: 10px;
+}
+
+.project-links a:hover {
+  color: #fff;
+}
+
+
+/* ABOUT ME */
+
+#about {
+  padding: 50px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/vilnius-panorama.jpg");
+  background-position: center-top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; /* Align items at the top */
+  margin-top: 70px; /* Adjust for the height of the nav bar */
+  padding: 0 20px;
+}
+
+.about-left {
+  flex: 0 0 300px;
+  margin-right: 40px;
+  margin-top: 20px; /* Adjust the margin to create space from the top */
+}
+
+.about-left img {
+  width: 250px;
+  height: auto;
+  border: 2px solid #fff; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
+}
+
+.about-right {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+  max-width: 600px; /* Adjust the width as desired */
+}
+
+.about-right h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-right p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.app-logos {
+  /* Add the following styles */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  max-width: 600px;
+}
+
+.app-logos a {
+  color: #ccc;
+  font-size: 40px;
+  margin: 10px 10px;
+}
+
+@media (max-width: 767px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-left {
+    margin-right: 0;
+  }
+  
+  .about-right {
+    max-width: 100%;
+  }
+
+  .app-logos {
+  /* Add the following styles */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  max-width: 100%;
+}
+}
+
+/* NAV BAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  height: 70px;
+}
+
+.nav-middle {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-middle h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.nav-left img {
+  max-height: 80px;
+  margin-left: 20px;
+}
+
+.nav-right {
+  max-height: 80px;
+  margin-right: 20px;
+}
+
+/* SOCIAL LINKS */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links a {
+  color: #ccc;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
