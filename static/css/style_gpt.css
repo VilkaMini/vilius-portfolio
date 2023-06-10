@@ -253,7 +253,7 @@ body {
 }
 
 .about-left img {
-  width: 100%;
+  width: 250px;
   height: auto;
   border: 2px solid #fff; /* Add border styling */
   border-radius: 10px; /* Add rounded corners */
@@ -277,6 +277,21 @@ body {
   line-height: 1.5;
 }
 
+.app-logos {
+  /* Add the following styles */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  max-width: 600px;
+}
+
+.app-logos a {
+  color: #ccc;
+  font-size: 40px;
+  margin: 10px 10px;
+}
+
 @media (max-width: 767px) {
   .about-container {
     flex-direction: column;
@@ -290,6 +305,15 @@ body {
   .about-right {
     max-width: 100%;
   }
+
+  .app-logos {
+  /* Add the following styles */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  max-width: 100%;
+}
 }
 
 /* NAV BAR */
