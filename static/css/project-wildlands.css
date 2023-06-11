@@ -180,7 +180,8 @@ nav {
 /* Game Description */
 
 #game-description {
-  padding: 70px;
+  padding-top: 70px;
+  padding-bottom: 70px;
   background-color: #111;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
   height: 200px;
