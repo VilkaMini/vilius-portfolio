@@ -1,392 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Vilius Alaunis</title>
-    <link rel="stylesheet" href="/css/project-wildlands.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/img/VA_white.png">
-    <link href="/css/prism.css" rel="stylesheet"/>
-    <script src="/js/prism.js"></script>
-</head>
-<body>
-    <div class="container">
-        <nav>
-            <div class="nav-left">
-                <a href="/"><img src="/img/VA_white.png" alt="Logo"></a>
-            </div>
-            <div class="nav-middle">
-                <h1>Vilius Alaunis</h1>
-            </div>
-            <div class="nav-right">
-                <div class="social-links">
-                <a href="https://www.linkedin.com/in/viliusalaunis" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.github.com/vilkamini" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.twitter.com/vilius_alaunis" target="_blank"><i class="fab fa-twitter"></i></a>
+    <head>
+        <title>Vilius Alaunis</title>
+        <link rel="stylesheet" href="/css/project-wildlands.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="icon" type="image/x-icon" href="/img/VA_white.png">
+        <link href="/css/prism.css" rel="stylesheet"/>
+        <script src="/js/prism.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <div class="nav-left">
+                    <a href="/"><img src="/img/VA_white.png" alt="Logo"></a>
                 </div>
-            </div>
-        </nav>
-        <section id="about" class="full-width-section">
-            <div class="about-container">
-                  <div class="about-right">
-                        <h2>Wildlands Interactive Experience</h2>
-                        <p>A third and forth block project, an educational game made for Wildlands Zoo Emmen to attract visitors and enhance their zoo experience.</p>
-                  </div>
-            </div>
-        </section>
-        <section id="project-details" class="full-width-section">
-            <div class="project-details-container">
-                <div class="project-detail">
-                    <h3>Game Genre</h3>
-                    <p>Edutainment</p>
+                <div class="nav-middle">
+                    <h1>Vilius Alaunis</h1>
                 </div>
-                <div class="project-detail">
-                    <h3>Platform</h3>
-                    <p>Touch Screen PC</p>
+                <div class="nav-right">
+                    <div class="social-links">
+                    <a href="https://www.linkedin.com/in/viliusalaunis" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.github.com/vilkamini" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.twitter.com/vilius_alaunis" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
-                <div class="project-detail">
-                    <h3>Engine</h3>
-                    <p>Unity</p>
+            </nav>
+            <section id="about" class="full-width-section">
+                <div class="about-container">
+                      <div class="about-right">
+                            <h2>Wildlands Interactive Experience</h2>
+                            <p>A third and forth block project, an educational game made for Wildlands Zoo Emmen to attract visitors and enhance their zoo experience.</p>
+                      </div>
                 </div>
-            </div>
-        </section>
-        <section id="game-description" class="full-width-section">
-          <div class="game-description-container">
-            <div class="game-description-text">
-              <h2>About the Development</h2>
-              <p>As an only programmer I was responsible for 100% of the game's code. I used C# to code main game systems: <strong>Movement Controls</strong>, <strong>Scanning of Environment system</strong>, <strong>Feeding system</strong>.</p>
-            </div>
-            <div class="game-description-image">
-              <img src="/img/WildlandsExperience/WildlandsRhinoPicture1.png" alt="Game Image">
-            </div>
-          </div>
-        </section>
-        <section id="development" class="full-width-section">
-            <div class="development-container">
-                <div class="development-text">
+            </section>
+            <section id="project-details" class="full-width-section">
+                <div class="project-details-container">
+                    <div class="project-detail">
+                        <h3>Game Genre</h3>
+                        <p>Edutainment</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Platform</h3>
+                        <p>Touch Screen PC</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Engine</h3>
+                        <p>Unity</p>
+                    </div>
+                </div>
+            </section>
+            <section id="game-description" class="full-width-section">
+              <div class="game-description-container">
+                <div class="game-description-text">
+                  <h2>About the Development</h2>
+                  <p>As an only programmer I was responsible for 100% of the game's code. I used C# to code main game systems: <strong>Movement Controls</strong>, <strong>Scanning of Environment system</strong>, <strong>Feeding system</strong>.</p>
+                </div>
+                <div class="game-description-image">
+                  <img src="/img/WildlandsExperience/WildlandsRhinoPicture1.png" alt="Game Image">
+                </div>
+              </div>
+            </section>
+            <section id="development" class="full-width-section">
+                <div class="development-container">
+                    <div class="development-text">
 
-                    <pre class="code-block">
-                        <code class="language-cs">
-public class ScanModeController : MonoBehaviour
-{
-    // Animal
-    public string animalID = "";
-    public string lastPartHit;
-
-    // Camera
-    public Camera viewCamera;
-
-    //Sticker objects
-    public GameObject rhinoSticker;
-    public GameObject rhinoStickerSilouete;
-    public bool isStickerObtained;
-
-    // UI text in informationPanel
-    public TextMeshProUGUI headerText;
-    public TextMeshProUGUI mainText;
-    public TextMeshProUGUI extraText;
-
-    public List&lt;GameObject> bodyParts;
-
-    void Update()
+                        <pre class="code-block">
+                            <code class="language-cs">
+    public class ScanModeController : MonoBehaviour
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            CheckGaze();
-        }
-    }
+        // Animal
+        public string animalID = "";
+        public string lastPartHit;
 
-    // Check for raycast to animal part and display correct info
-    private void CheckGaze()
-    {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        // Camera
+        public Camera viewCamera;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        //Sticker objects
+        public GameObject rhinoSticker;
+        public GameObject rhinoStickerSilouete;
+        public bool isStickerObtained;
+
+        // UI text in informationPanel
+        public TextMeshProUGUI headerText;
+        public TextMeshProUGUI mainText;
+        public TextMeshProUGUI extraText;
+
+        public List&lt;GameObject> bodyParts;
+
+        void Update()
         {
-            // Check ray collider tag and display correct text based on tag
-            string part = hit.collider.tag;
-            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Horns", "Mouth", "Tree", "Grass", "Waterhole", "Bird", "Feces"};
-            if (lastPartHit != part) {
-                // Check if list contains the part
-                if (partList.Contains(part))
-                {
-                    lastPartHit = part;
-                    UpdateStats(part);
-                    OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
-                }
-                else
-                {
-                    lastPartHit = null;
-                    CloseInformationPanel();
-                }
+            if (Input.GetMouseButtonDown(0))
+            {
+                CheckGaze();
             }
         }
-        else
+
+        // Check for raycast to animal part and display correct info
+        private void CheckGaze()
         {
-            lastPartHit = null;
-            CloseInformationPanel();
-        }
-    }
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-    // Information panel controllers ------------------------------
-    private void OpenInformationPanel(string header, string main, string extra)
-    {
-        CloseInformationPanel();
-        headerText.text = header;
-        mainText.text = main;
-        extraText.text = extra;
-        informationPanel.SetActive(true);
-    }
-
-    public void CloseInformationPanel()
-    {
-        informationPanel.SetActive(false);
-    }
-
-    // Update stats
-    private void UpdateStats(string part)
-    {
-        // Update list with new part if it is new part
-        if (!Storage.animalPartsScanned[animalID].Contains(part))
-        {
-            Storage.animalPartsScanned[animalID].Add(part);
-            for (int i=0; i< bodyParts.Count; i++)
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                if (bodyParts[i].name == part)
-                {
-                    bodyParts[i].SetActive(true);
-                }
-            }
-        }
-        // Check if sticker is collected
-        if (!isStickerObtained)
-        {
-            // Check all bodyparts if they are collected
-            List&lt;string> allBodyParts = new List&lt;string> { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Horns", "Mouth"};
-            for (int i=0; i < allBodyParts.Count; i++)
-            {
-                if (Storage.animalPartsScanned[animalID].Contains(allBodyParts[i]))
-                {
-                    // If all collected disable individual parts and display full sticker
-                    if (allBodyParts.Count-1 == i)
+                // Check ray collider tag and display correct text based on tag
+                string part = hit.collider.tag;
+                string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Horns", "Mouth", "Tree", "Grass", "Waterhole", "Bird", "Feces"};
+                if (lastPartHit != part) {
+                    // Check if list contains the part
+                    if (partList.Contains(part))
                     {
-                        rhinoStickerSilouete.SetActive(false);
-                        rhinoSticker.SetActive(true);
-                        for (int k=0; k < bodyParts.Count; k++)
-                        {
-                            if (allBodyParts.Contains(bodyParts[k].name))
-                            {
-                                bodyParts[k].SetActive(false);
-                            }
-                        }
-                        isStickerObtained = true;
+                        lastPartHit = part;
+                        UpdateStats(part);
+                        OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
+                    }
+                    else
+                    {
+                        lastPartHit = null;
+                        CloseInformationPanel();
                     }
                 }
-                else
+            }
+            else
+            {
+                lastPartHit = null;
+                CloseInformationPanel();
+            }
+        }
+
+        // Information panel controllers ------------------------------
+        private void OpenInformationPanel(string header, string main, string extra)
+        {
+            CloseInformationPanel();
+            headerText.text = header;
+            mainText.text = main;
+            extraText.text = extra;
+            informationPanel.SetActive(true);
+        }
+
+        public void CloseInformationPanel()
+        {
+            informationPanel.SetActive(false);
+        }
+
+        // Update stats
+        private void UpdateStats(string part)
+        {
+            // Update list with new part if it is new part
+            if (!Storage.animalPartsScanned[animalID].Contains(part))
+            {
+                Storage.animalPartsScanned[animalID].Add(part);
+                for (int i=0; i< bodyParts.Count; i++)
                 {
-                    break;
+                    if (bodyParts[i].name == part)
+                    {
+                        bodyParts[i].SetActive(true);
+                    }
+                }
+            }
+            // Check if sticker is collected
+            if (!isStickerObtained)
+            {
+                // Check all bodyparts if they are collected
+                List&lt;string> allBodyParts = new List&lt;string> { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Horns", "Mouth"};
+                for (int i=0; i < allBodyParts.Count; i++)
+                {
+                    if (Storage.animalPartsScanned[animalID].Contains(allBodyParts[i]))
+                    {
+                        // If all collected disable individual parts and display full sticker
+                        if (allBodyParts.Count-1 == i)
+                        {
+                            rhinoStickerSilouete.SetActive(false);
+                            rhinoSticker.SetActive(true);
+                            for (int k=0; k < bodyParts.Count; k++)
+                            {
+                                if (allBodyParts.Contains(bodyParts[k].name))
+                                {
+                                    bodyParts[k].SetActive(false);
+                                }
+                            }
+                            isStickerObtained = true;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
         }
     }
-}
-                        </code>
-                    </pre>
-                </div>
-                <div class="development-description-text">
-                    <h2>Scanning Environment</h2>
-                    <p>The Scanning system sends out a ray and captures the gameobject tag, if the tag is in the list, it loads the information for that body or habitat part.<br><br>The code also checks for UI sticker elements and activates them for a corresponding part.</p>
-                    <div class="development-image">
-                        <img src="/img/WildlandsExperience/WildlandsScanning.gif" alt="Development Image">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="development-second" class="full-width-section mirrored-section">
-            <div class="development-container">
-                <div class="development-description-text-mirrored">
-                    <h2>Movement Controls</h2>
-                    <p>The Movement controls are designed to control 2 control points, the arm of the 360 camera going around the animal and a camera span with deadzones.<br><br>The Joystick is custom designed to just control the camera span to look around the habitat.</p>
-                    <div class="development-image-mirrored">
-                        <img src="/img/WildlandsExperience/WildlandsMovement.gif" alt="Terranova Exit image">
-                    </div>
-                </div>
-                <div class="development-text mirrored-text">
-                    <pre class="code-block">
-                        <code class="language-gml">
-public class ViewCameraControl : MonoBehaviour
-{
-    private Transform focalPoint;
-    public Camera c;
-    private Transform cam;
-    public JoyStickController Joystick;
-    public Slider zoomPercentageSlider;
-    public RectTransform SliderHandle;
-
-    // Internal variables
-    private float rotationY;
-    private float rotationX;
-    private float cameraYAddition;
-    private float cameraXAddition;
-    private float fovVal =  60;
-
-    // External
-    public float cameraArmMovementSpeed = 0.5f;
-    public float cameraMoveSpeed = 0.2f;
-    public float zoomSens = 0.5f;
-    public int cameraDeadZone = 20;
-
-    // Arm drive
-    private bool armUp = false;
-    private bool armDown = false;
-    private bool armLeft = false;
-    private bool armRight = false;
-
-    // Zoom bools
-    private bool zoomIn = false;
-    private bool zoomOut = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Define gameobjects
-        focalPoint = this.transform;
-        cam = c.transform;
-
-        // Curso settings
-        Cursor.visible= false;
-
-        // Set initial rotation of camera
-        rotationY = 140;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Drive arm control
-        if (armUp)
-        {
-            var RotCheckVal = rotationX + cameraArmMovementSpeed;
-            if (-10 <= RotCheckVal && RotCheckVal <= 10){
-                rotationX += cameraArmMovementSpeed;
-            }
-        }
-        if (armDown)
-        {
-            var RotCheckVal = rotationX - cameraArmMovementSpeed;
-            if (-10 <= RotCheckVal && RotCheckVal <= 10)
-            {
-                rotationX += -cameraArmMovementSpeed;
-            }
-        }
-        if (armLeft)
-        {
-            rotationY += cameraArmMovementSpeed;
-        }
-        if (armRight)
-        {
-            rotationY += -cameraArmMovementSpeed;
-        }
-        focalPoint.rotation = Quaternion.Euler(rotationX, rotationY, 0);
-
-        // Camera move control
-        if (Joystick.horizontal != 0 || Joystick.vertical != 0)
-        {
-            var RotTempValX = cameraYAddition + Joystick.horizontal * cameraMoveSpeed;
-            var RotTempValY = cameraXAddition + Joystick.vertical * -cameraMoveSpeed;
-            if (-cameraDeadZone <= RotTempValX && RotTempValX <= cameraDeadZone) { cameraYAddition += Joystick.horizontal * cameraMoveSpeed; }
-            if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { cameraXAddition += Joystick.vertical * -cameraMoveSpeed; }
-
-            cam.rotation = Quaternion.Euler(rotationX + cameraXAddition, rotationY + cameraYAddition, 0);
-        }
-
-        // Zoom in and out control
-        if (zoomIn)
-        {
-            var TempZoomVal = fovVal -zoomSens;
-            if (20 <= TempZoomVal) { fovVal += -zoomSens; }
-        }
-        if (zoomOut)
-        {
-            var TempZoomVal = fovVal + zoomSens;
-            if (60 >= TempZoomVal) { fovVal += zoomSens; }
-        }
-        c.fieldOfView = fovVal;
-    }
-
-    // Arm Drive boolean changers for buttons
-    public void ArmDriveUp(int value)
-    {
-        if (value == 1) { armUp = true; }
-        else { armUp = false; }
-    }
-
-    public void ArmDriveDown(int value)
-    {
-        if (value == 1) { armDown = true; }
-        else { armDown = false; }
-    }
-
-    public void ArmDriveLeft(int value)
-    {
-        if (value == 1) { armLeft = true; }
-        else { armLeft = false; }
-    }
-
-    public void ArmDriveRight(int value)
-    {
-        if (value == 1) { armRight = true; }
-        else { armRight = false; }
-    }
-
-    // Zoom buttons
-    public void ZoomIn(int value)
-    {
-        if (value == 1) { zoomIn = true; }
-        else { zoomIn = false; }
-    }
-    public void ZoomOut(int value)
-    {
-        if (value == 1) { zoomOut = true; }
-        else { zoomOut = false; }
-    }
-
-    // Zoom Slider
-    public void SliderReactToChange()
-    {
-        float sliderValue = zoomPercentageSlider.value;
-        SliderHandle.localScale = new Vector3(1 + sliderValue, 1 + sliderValue, 1 + sliderValue);
-        fovVal = 60 - 40 * sliderValue;
-    }
-}
                             </code>
                         </pre>
-                </div>
-            </div>
-        </section>
-        <section id="extras" class="full-width-section">
-            <div class="extras-container">
-                <h2>Extras</h2>
-                <div class="extras-items">
-                    <div class="extras-item">
-                        <img src="/img/WildlandsExperience/RhinoModelShowcase.png" alt="Extra 1">
-                        <p>Modeled and textured the Rhino.</p>
+                    </div>
+                    <div class="development-description-text">
+                        <h2>Scanning Environment</h2>
+                        <p>The Scanning system sends out a ray and captures the gameobject tag, if the tag is in the list, it loads the information for that body or habitat part.<br><br>The code also checks for UI sticker elements and activates them for a corresponding part.</p>
+                        <div class="development-image">
+                            <img src="/img/WildlandsExperience/WildlandsScanning.gif" alt="Development Image">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="picture-showcase" class="full-width-section">
-              <div class="picture-showcase-container">
-                    <h2>Game Screenshots</h2>
-                    <div class="picture-showcase-images">
-                        <img src="/img/WildlandsExperience/WildlandsImage1.png" alt="Showcase Image 1">
-                        <img src="/img/WildlandsExperience/WildlandsImage2.png" alt="Showcase Image 2">
-                        <img src="/img/WildlandsExperience/WildlandsImage3.png" alt="Showcase Image 3">
-                        <img src="/img/WildlandsExperience/WildlandsImage4.png" alt="Showcase Image 4">
-                        <img src="/img/WildlandsExperience/WildlandsImage5.png" alt="Showcase Image 5">
+            </section>
+            <section id="development-second" class="full-width-section mirrored-section">
+                <div class="development-container">
+                    <div class="development-description-text-mirrored">
+                        <h2>Movement Controls</h2>
+                        <p>The Movement controls are designed to control 2 control points, the arm of the 360 camera going around the animal and a camera span with deadzones.<br><br>The Joystick is custom designed to just control the camera span to look around the habitat.</p>
+                        <div class="development-image-mirrored">
+                            <img src="/img/WildlandsExperience/WildlandsMovement.gif" alt="Terranova Exit image">
+                        </div>
                     </div>
-              </div>
-        </section>
-    </div>
-</body>
+                    <div class="development-text mirrored-text">
+                        <pre class="code-block">
+                            <code class="language-gml">
+    public class ViewCameraControl : MonoBehaviour
+    {
+        private Transform focalPoint;
+        public Camera c;
+        private Transform cam;
+        public JoyStickController Joystick;
+        public Slider zoomPercentageSlider;
+        public RectTransform SliderHandle;
+
+        // Internal variables
+        private float rotationY;
+        private float rotationX;
+        private float cameraYAddition;
+        private float cameraXAddition;
+        private float fovVal =  60;
+
+        // External
+        public float cameraArmMovementSpeed = 0.5f;
+        public float cameraMoveSpeed = 0.2f;
+        public float zoomSens = 0.5f;
+        public int cameraDeadZone = 20;
+
+        // Arm drive
+        private bool armUp = false;
+        private bool armDown = false;
+        private bool armLeft = false;
+        private bool armRight = false;
+
+        // Zoom bools
+        private bool zoomIn = false;
+        private bool zoomOut = false;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            // Define gameobjects
+            focalPoint = this.transform;
+            cam = c.transform;
+
+            // Curso settings
+            Cursor.visible= false;
+
+            // Set initial rotation of camera
+            rotationY = 140;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            // Drive arm control
+            if (armUp)
+            {
+                var RotCheckVal = rotationX + cameraArmMovementSpeed;
+                if (-10 <= RotCheckVal && RotCheckVal <= 10){
+                    rotationX += cameraArmMovementSpeed;
+                }
+            }
+            if (armDown)
+            {
+                var RotCheckVal = rotationX - cameraArmMovementSpeed;
+                if (-10 <= RotCheckVal && RotCheckVal <= 10)
+                {
+                    rotationX += -cameraArmMovementSpeed;
+                }
+            }
+            if (armLeft)
+            {
+                rotationY += cameraArmMovementSpeed;
+            }
+            if (armRight)
+            {
+                rotationY += -cameraArmMovementSpeed;
+            }
+            focalPoint.rotation = Quaternion.Euler(rotationX, rotationY, 0);
+
+            // Camera move control
+            if (Joystick.horizontal != 0 || Joystick.vertical != 0)
+            {
+                var RotTempValX = cameraYAddition + Joystick.horizontal * cameraMoveSpeed;
+                var RotTempValY = cameraXAddition + Joystick.vertical * -cameraMoveSpeed;
+                if (-cameraDeadZone <= RotTempValX && RotTempValX <= cameraDeadZone) { cameraYAddition += Joystick.horizontal * cameraMoveSpeed; }
+                if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { cameraXAddition += Joystick.vertical * -cameraMoveSpeed; }
+
+                cam.rotation = Quaternion.Euler(rotationX + cameraXAddition, rotationY + cameraYAddition, 0);
+            }
+
+            // Zoom in and out control
+            if (zoomIn)
+            {
+                var TempZoomVal = fovVal -zoomSens;
+                if (20 <= TempZoomVal) { fovVal += -zoomSens; }
+            }
+            if (zoomOut)
+            {
+                var TempZoomVal = fovVal + zoomSens;
+                if (60 >= TempZoomVal) { fovVal += zoomSens; }
+            }
+            c.fieldOfView = fovVal;
+        }
+
+        // Arm Drive boolean changers for buttons
+        public void ArmDriveUp(int value)
+        {
+            if (value == 1) { armUp = true; }
+            else { armUp = false; }
+        }
+
+        public void ArmDriveDown(int value)
+        {
+            if (value == 1) { armDown = true; }
+            else { armDown = false; }
+        }
+
+        public void ArmDriveLeft(int value)
+        {
+            if (value == 1) { armLeft = true; }
+            else { armLeft = false; }
+        }
+
+        public void ArmDriveRight(int value)
+        {
+            if (value == 1) { armRight = true; }
+            else { armRight = false; }
+        }
+
+        // Zoom buttons
+        public void ZoomIn(int value)
+        {
+            if (value == 1) { zoomIn = true; }
+            else { zoomIn = false; }
+        }
+        public void ZoomOut(int value)
+        {
+            if (value == 1) { zoomOut = true; }
+            else { zoomOut = false; }
+        }
+
+        // Zoom Slider
+        public void SliderReactToChange()
+        {
+            float sliderValue = zoomPercentageSlider.value;
+            SliderHandle.localScale = new Vector3(1 + sliderValue, 1 + sliderValue, 1 + sliderValue);
+            fovVal = 60 - 40 * sliderValue;
+        }
+    }
+                                </code>
+                            </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="extras" class="full-width-section">
+                <div class="extras-container">
+                    <h2>Extras</h2>
+                    <div class="extras-items">
+                        <div class="extras-item">
+                            <img src="/img/WildlandsExperience/RhinoModelShowcase.png" alt="Extra 1">
+                            <p>Modeled and textured the Rhino.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="picture-showcase" class="full-width-section">
+                  <div class="picture-showcase-container">
+                        <h2>Game Screenshots</h2>
+                        <div class="picture-showcase-images">
+                            <img src="/img/WildlandsExperience/WildlandsImage1.png" alt="Showcase Image 1">
+                            <img src="/img/WildlandsExperience/WildlandsImage2.png" alt="Showcase Image 2">
+                            <img src="/img/WildlandsExperience/WildlandsImage3.png" alt="Showcase Image 3">
+                            <img src="/img/WildlandsExperience/WildlandsImage4.png" alt="Showcase Image 4">
+                            <img src="/img/WildlandsExperience/WildlandsImage5.png" alt="Showcase Image 5">
+                        </div>
+                  </div>
+            </section>
+        </div>
+    </body>
 </html>
