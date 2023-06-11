@@ -226,7 +226,7 @@ nav {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  border: 2px solid #fff; /* Add border styling */
+  border: 2px solid #3e3e3e; /* Add border styling */
   border-radius: 10px; /* Add rounded corners */
   overflow: hidden;
 }
@@ -292,15 +292,14 @@ nav {
 .development-image {
   flex: 0 0 400px;
   margin-left: 40px;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 .development-image img {
   width: 100%;
   height: auto;
+  border: 2px solid #3e3e3e;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .development-description-text {
@@ -371,15 +370,15 @@ nav {
 .development-image-mirrored {
   flex: 0 0 400px;
   margin-right: 40px;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  overflow: hidden;
+
 }
 
 .development-image-mirrored img {
   width: 100%;
   height: auto;
+  border: 2px solid #3e3e3e;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 #development-second {
@@ -409,6 +408,7 @@ nav {
   padding: 20px 0;
   background-color: #111;
   color: #fff;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
 }
 
 .picture-showcase-container {
@@ -437,6 +437,55 @@ nav {
   height: auto;
   margin: 10px;
   border-radius: 10px;
-  border: 2px solid #fff;
+  border: 2px solid #3e3e3e;
   overflow: hidden;
+}
+
+#extras {
+  padding: 20px 0;
+  background-color: #111;
+  color: #fff;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+}
+
+.extras-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.extras-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.extras-items {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.extras-item {
+  width: 350px;
+  margin: 10px;
+  text-align: center;
+}
+
+.extras-item img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 2px solid #3e3e3e;
+  overflow: hidden;
+}
+
+.extras-item p {
+  font-size: 18px;
+  margin: 0;
 }
