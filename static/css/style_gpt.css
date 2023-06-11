@@ -78,10 +78,22 @@ body {
 .project-right img {
   width: 100%;
   height: auto;
-  border: 2px solid #3e3e3e; /* Add border styling */
-  border-radius: 18px; /* Add rounded corners */
+  border: 2px solid #3e3e3e;
+  border-radius: 18px;
   overflow: hidden;
-  max-width: 400px; /* Adjust the maximum width of the image */
+  max-width: 400px;
+}
+
+.vertical-picture {
+  margin-top: 0px;
+  margin-left: 125px;
+  margin-right: 125px;
+}
+
+.vertical-picture img {
+  height: 300px;
+  width: auto;
+  border-radius: 25px;
 }
 
 /* Project Tags */

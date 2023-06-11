@@ -14,6 +14,10 @@ def wildlandsexperience():
 def terranova():
     return render_template('terranova.html')
 
+@app.route("/wordweaver/", methods=["GET"])
+def wordweaver():
+    return render_template('wordweaver.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
