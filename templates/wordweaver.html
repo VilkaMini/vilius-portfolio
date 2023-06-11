@@ -53,7 +53,7 @@
               <div class="game-description-container">
                 <div class="game-description-text">
                   <h2>About the Development</h2>
-                  <p>This hobby project is meant to be a great lesson in all aspects of programming. I am exploring Unity and learning how to create more efficient and easier to read code while at the same time reevaluating what I have written and if needed, rewriting existing code to be better. Scripts include: <strong>Conveyor tracking</strong>, <strong>Truck Check</strong> and <strong>Train Letter Unloading</strong>.</p>
+                  <p>This hobby project is meant to be a great lesson in all aspects of programming. I am exploring Unity and learning how to create more efficient and easier to read code while at the same time reevaluating what I have written and if needed, rewriting existing code to be better. Scripts include: <strong>Conveyor tracking</strong>, <strong>Truck Logic</strong> and <strong>Train Letter Unloading</strong>.</p>
                 </div>
                 <div class="game-description-image">
                   <img src="/img/Wordweaver/WordweaverGif1.gif" alt="Game Image">
@@ -65,15 +65,95 @@
                     <div class="development-text">
                         <pre class="code-block">
                             <code class="language-cs">
-// Add script
+public class LetterObject : MonoBehaviour
+{
+    // Components & Letter
+    public SpriteRenderer rnd;
+    public Collider2D letterCollider;
+    public Letter letter;
+
+    // Waypoints
+    public Transform[] wayPoints;
+    private int currentWayPoint = 0;
+    private Transform targetWayPoint;
+
+    // Variables
+    private bool isColliding = false;
+    private float speed = 2.0f;
+    public int indexOfLetter;
+    public LetterObject nextLetter;
+
+    private void Awake()
+    {
+        Actions.OnLetterUpdate += GetNextLetter;
+    }
+
+    private void Start()
+    {
+        if (letter){rnd.sprite = letter.Icon;}
+    }
+
+    private void Update()
+    {
+        // If there is next waypoint drive to it
+        if (currentWayPoint < wayPoints.Length)
+        {
+            if (targetWayPoint == null)
+                targetWayPoint = wayPoints[currentWayPoint];
+            DriveLetters();
+        }
+
+        // Check collision with other letter
+        CheckForNextLetter(nextLetter);
+    }
+
+    private void DriveLetters()
+    {
+        // move towards the target
+        if (!isColliding || indexOfLetter == 0)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
+        }
+
+        // Check if letter in position, change target if it is
+        if (transform.position == targetWayPoint.position)
+        {
+            currentWayPoint++;
+            if (currentWayPoint >= wayPoints.Length){}
+            else
+            {
+                targetWayPoint = wayPoints[currentWayPoint];
+            }
+        }
+    }
+
+    // Checks if letter is colliding next letter
+    private void CheckForNextLetter(LetterObject nextLetter)
+    {
+        if (indexOfLetter != 0 && nextLetter)
+        {
+            isColliding = letterCollider.bounds.Intersects(nextLetter.letterCollider.bounds);
+        }
+    }
+
+    // Get next leter from letter conveyor array
+    private void GetNextLetter(List&lt;LetterObject> letterList)
+    {
+        indexOfLetter = letterList.IndexOf(this);
+        if (indexOfLetter > 0)
+        {
+            nextLetter = letterList[indexOfLetter - 1];
+        }
+    }
+}
                             </code>
                         </pre>
                     </div>
                     <div class="development-description-text">
                         <h2>Conveyor tracking</h2>
-                        <p></p>
+                        <p>The Letter Object is made to follow a path between points for conveyor turns. On change with conveyor list (a letter pull to the truck) an actions is triggered to recheck each letter's index on the conveyor to manage object's collision.</p>
                         <div class="development-image">
-                            <img src="/img/Terranova/TerranovaDialogueGif.gif" alt="Development Image">
+                            <img src="/img/Wordweaver/WordweaverGif1.gif" alt="Development Image">
                         </div>
                     </div>
                 </div>
@@ -81,29 +161,153 @@
             <section id="development-second" class="full-width-section mirrored-section">
                 <div class="development-container">
                     <div class="development-description-text-mirrored">
-                        <h2>Truck Check</h2>
-                        <p></p>
+                        <h2>Truck Logic</h2>
+                        <p>The TruckLogic script is made to control the trucks, it updates the letters shown in the truck, checks word in a truck after action by the player and if the word exists, send the truck on its way and spawn another one.</p>
                         <div class="development-image-mirrored">
-                            <img src="/img/Terranova/TerranovaExitGif.gif" alt="Terranova Exit image">
+                            <img src="/img/Wordweaver/WordweaverGif2.gif" alt="Terranova Exit image">
                         </div>
                     </div>
                     <div class="development-text mirrored-text">
                         <pre class="code-block">
                             <code class="language-cs">
-// Add script
+public class TruckLogic : MonoBehaviour
+{
+    // Objects and variales
+    public Storage database;
+    public Collider2D truckCol;
+    public Rigidbody2D rb;
+    public GameObject truckPrefab;
+    public int truckNumber;
+
+    // Lists
+    public List&lt;LetterGridObject> slotsLetter;
+    public List&lt;Letter> letterList;
+
+    private bool coroutineRunning;
+    private IEnumerator truckCoroutine;
+    private Vector2 screenBounds;
+
+    void Start()
+    {
+        // Setup of truck
+        Actions.OnTruckUpdate += TruckLetterDisplay;
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+
+        database = FindObjectOfType&lt;Storage>();
+        LetterGridObject[] gridScripts = this.GetComponentsInChildren&lt;LetterGridObject>();
+        for (int i=0; i< gridScripts.Length; i++)
+        {
+            slotsLetter[i] = gridScripts[i];
+            slotsLetter[i].GridIndex = i;
+            slotsLetter[i].truckNumber = truckNumber;
+        }
+    }
+
+    void TruckLetterDisplay()
+    {
+        // Reload all sprites inside truck if change happened
+        for (int i=0; i< slotsLetter.Count; i++)
+        {
+            if (i < letterList.Count)
+            {
+                slotsLetter[i].rnd.sprite = letterList[i].Icon;
+                slotsLetter[i].letter = letterList[i];
+            }
+            else
+            {
+                slotsLetter[i].rnd.sprite = null;
+                slotsLetter[i].letter = null;
+            }
+        }
+        // Check if truck has a viable word
+        CheckTruckWord();
+    }
+    private void CheckTruckWord()
+    {
+        //Construct word
+        string word = ConstructWord();
+        if (database.words.Contains(word))
+        {
+            // Start drive off coroutine if word exists, start new if word changed into another viable word
+            if (coroutineRunning)
+            {
+                StopCoroutine(truckCoroutine);
+                coroutineRunning = false;
+            }
+            truckCoroutine = TruckDriveOffCoroutine(word, truckNumber);
+            StartCoroutine(truckCoroutine);
+            coroutineRunning = true;
+        }
+    }
+
+    // Make word from letter objects
+    private string ConstructWord()
+    {
+        List&lt;char> chars = new List&lt;char>();
+        for (int i = 0; i < letterList.Count; i++)
+        {
+            chars.Add(letterList[i].LetterChar);
+        }
+
+        return new string(chars.ToArray());
+    }
+
+    // Truck coroutine
+    private IEnumerator TruckDriveOffCoroutine(string word, int truckNumber)
+    {
+        print("Coroutine Start Truck: " + truckNumber);
+        yield return new WaitForSeconds(1);
+        print("3");
+        yield return new WaitForSeconds(1);
+        print("2");
+        yield return new WaitForSeconds(1);
+        print("1");
+        if (ConstructWord() == word)
+        {
+            transform.position = new Vector3(-0.001f, transform.position.y, transform.position.z);
+            rb.velocity = new Vector2(-2, 0);
+            CountPoints(word);
+            print("Truck Driving Out truck: " + truckNumber);
+        }
+        else
+        {
+            print("Word changed, no truck: " + truckNumber);
+        }
+    }
+
+    private void CountPoints(string word)
+    {
+        database.points += word.Length;
+    }
+
+    // Drive truck
+    private void Update()
+    {
+        // If truck arrived in position stop it
+        if (transform.position.x < 0.05f && transform.position.x > -0.001f)
+        {
+            rb.velocity = new Vector2(0, 0);
+            transform.position = new Vector3(0.0f, transform.position.y, transform.position.z);
+        }
+
+        // If truck drove off the screen spawn new one
+        if (transform.position.x < screenBounds.x * -2f)
+        {
+            GameObject truck = Instantiate(truckPrefab);
+            truck.transform.position = new Vector3(screenBounds.x * 2.0f, this.transform.position.y, this.transform.position.z);
+            TruckLogic script = truck.GetComponent&lt;TruckLogic>();
+            script.truckNumber = truckNumber;
+            script.rb.velocity = new Vector2(-2, 0);
+            database.trucks[truckNumber] = script;
+
+            // Destroy old truck
+            Actions.OnTruckUpdate -= TruckLetterDisplay;
+            Destroy(this.gameObject);
+        }
+    }
+}
                             </code>
                         </pre>
-                    </div>
-                </div>
-            </section>
-            <section id="extras" class="full-width-section">
-                <div class="extras-container">
-                    <h2>Extras</h2>
-                    <div class="extras-items">
-                        <div class="extras-item">
-                            <img src="/img/Terranova/TerranovaParallax.png" alt="Extra 1">
-                            <p>Drew and integrated a parallax background for main menu screen.</p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -111,11 +315,8 @@
                   <div class="picture-showcase-container">
                         <h2>Game Screenshots</h2>
                         <div class="picture-showcase-images">
-                            <img src="/img/Terranova/TerranovaDialogShowcase1.png" alt="Showcase Image 1">
-                            <img src="/img/Terranova/terranovaPicture1.png" alt="Showcase Image 2">
-                            <img src="/img/Terranova/terranovaPicture2.png" alt="Showcase Image 3">
-                            <img src="/img/Terranova/terranovaPicture3.png" alt="Showcase Image 4">
-                            <img src="/img/Terranova/terranovaPicture4.png" alt="Showcase Image 5">
+                            <img src="/img/Wordweaver/WordweaverPicture2.png" alt="Showcase Image 2">
+                            <img src="/img/Wordweaver/WordweaverPicture3.png" alt="Showcase Image 3">
                         </div>
                   </div>
             </section>

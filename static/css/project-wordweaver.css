@@ -291,15 +291,13 @@ nav {
 
 .development-image {
   flex: 0 0 400px;
-  margin-left: 40px;
-
 }
 
 .development-image img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 400px;
   border: 2px solid #3e3e3e;
-  border-radius: 18px;
+  border-radius: 28px;
   overflow: hidden;
 }
 
@@ -375,10 +373,10 @@ nav {
 }
 
 .development-image-mirrored img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 400px;
   border: 2px solid #3e3e3e;
-  border-radius: 20px;
+  border-radius: 30px;
   overflow: hidden;
 }
 
@@ -434,10 +432,10 @@ nav {
 }
 
 .picture-showcase-images img {
-  width: 380px;
-  height: auto;
+  width: auto;
+  height: 400px;
   margin: 10px;
-  border-radius: 18px;
+  border-radius: 30px;
   border: 2px solid #3e3e3e;
   overflow: hidden;
 }
