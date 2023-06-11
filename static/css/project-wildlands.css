@@ -409,6 +409,7 @@ nav {
   padding: 20px 0;
   background-color: #111;
   color: #fff;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
 }
 
 .picture-showcase-container {
@@ -439,4 +440,52 @@ nav {
   border-radius: 10px;
   border: 2px solid #fff;
   overflow: hidden;
+}
+
+
+#extras {
+  padding: 20px 0;
+  background-color: #111;
+  color: #fff;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+}
+
+.extras-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.extras-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.extras-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.extras-item {
+  flex-basis: 300px;
+  margin: 10px;
+  text-align: center;
+}
+
+.extras-item img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.extras-item p {
+  font-size: 14px;
+  margin: 0;
 }
