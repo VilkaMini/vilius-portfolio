@@ -374,7 +374,7 @@ nav {
 #stack {
   display: flex;
   text-align: center;
-  padding-top: 20px;
+  padding: 20px 0;
   background-color: #111;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
   background-position: center top;
@@ -388,6 +388,11 @@ nav {
 
 .stack-content {
   margin: 0 auto;
+}
+
+.stack-content  h2{
+  margin-block-start: 0px;
+  margin-block-end: 10px;
 }
 
 .app-logos {
