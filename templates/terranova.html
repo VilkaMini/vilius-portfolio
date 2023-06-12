@@ -66,46 +66,46 @@
 
                         <pre class="code-block">
                             <code class="language-gml">
-    // If the room is village
-    if (room == Villages && global.interacting){
-        char_name = global.char_name_pass;
-        alarm[0] = 2;
-        for (var i=0; i&lt;5; i++){
-            // Check for interactable character
-            if (npc_names[i] == char_name && global.quest_active == false){
-                // Check if the the quest is the last one
-                if (npc_counter[i] &lt;= npc_counter_max[i]){
-                    condition = global.array_quests[npc_counter[i]][2];
-                    // Go through inventory to check if condition is met
-                    for (var k=0; k&lt;array_length(global.inventory); k++){
-                        item = global.inventory[k];
-                        // Check if the item is collected
-                        if ((item[item_name] == condition && item[item_owned] == item[item_max]) || condition == "" && global.quest_active == false){
-                            if (global.array_quests[npc_counter[i]][3] != ""){
-                                for (var p=0; p&lt;array_length;(global.inventory); p++){
-                                    item_give = global.inventory[p];
-                                    if (global.array_quests[npc_counter[i]][3] == item_give[0]){
-                                        global.inventory[p][item_owned] += 1;
-                                        break;
-                                    }
+// If the room is village
+if (room == Villages && global.interacting){
+    char_name = global.char_name_pass;
+    alarm[0] = 2;
+    for (var i=0; i&lt;5; i++){
+        // Check for interactable character
+        if (npc_names[i] == char_name && global.quest_active == false){
+            // Check if the the quest is the last one
+            if (npc_counter[i] &lt;= npc_counter_max[i]){
+                condition = global.array_quests[npc_counter[i]][2];
+                // Go through inventory to check if condition is met
+                for (var k=0; k&lt;array_length(global.inventory); k++){
+                    item = global.inventory[k];
+                    // Check if the item is collected
+                    if ((item[item_name] == condition && item[item_owned] == item[item_max]) || condition == "" && global.quest_active == false){
+                        if (global.array_quests[npc_counter[i]][3] != ""){
+                            for (var p=0; p&lt;array_length;(global.inventory); p++){
+                                item_give = global.inventory[p];
+                                if (global.array_quests[npc_counter[i]][3] == item_give[0]){
+                                    global.inventory[p][item_owned] += 1;
+                                    break;
                                 }
                             }
-                            npc_dialogue_c = npc_counter[i];
-                            if (npc_counter[i] != npc_counter_max[i]){
-                                npc_counter[i] += 1;
-                                global.array_quests[npc_counter[i]][0] = "Completed";
-                            }
-                            global.quest_active = true;
                         }
+                        npc_dialogue_c = npc_counter[i];
+                        if (npc_counter[i] != npc_counter_max[i]){
+                            npc_counter[i] += 1;
+                            global.array_quests[npc_counter[i]][0] = "Completed";
+                        }
+                        global.quest_active = true;
                     }
                 }
             }
         }
-        text = global.array_quests[npc_dialogue_c][1];
-        // Draw dialogue opener aka textbox and text
-        draw_sprite(textbox, -1, _x, _y-45);
-        draw_text_ext(_x, _y-45, text, 25, 900);
     }
+    text = global.array_quests[npc_dialogue_c][1];
+    // Draw dialogue opener aka textbox and text
+    draw_sprite(textbox, -1, _x, _y-45);
+    draw_text_ext(_x, _y-45, text, 25, 900);
+}
                             </code>
                         </pre>
                     </div>
@@ -130,53 +130,53 @@
                     <div class="development-text mirrored-text">
                         <pre class="code-block">
                             <code class="language-gml">
-        // If exit button clicked create a minigame of exit
-        _diameter = 300;
-        _centerX = 683;
-        _centerY = 380;
-        _rotation = 0.0;
-        _rotMove = 0.00;
-        _incSize = 1;
+// If exit button clicked create a minigame of exit
+_diameter = 300;
+_centerX = 683;
+_centerY = 380;
+_rotation = 0.0;
+_rotMove = 0.00;
+_incSize = 1;
 
-        // First circle was completed
-        _round2 = false;
+// First circle was completed
+_round2 = false;
 
-        _centerX += 5;
+_centerX += 5;
 
-        if (_round2 && _diameter <= 400){
-            _diameter += _incSize;
+if (_round2 && _diameter <= 400){
+    _diameter += _incSize;
+}
+
+if (global.exit_clicked == true){
+    if (_rotMove >= 1){
+        _rotMove = 0;
+    }
+    if (_rotation >= 1){
+        _rotation = 0;
+    }
+    _real_exit_position = irandom(5);
+    for (var i=0; i<10; i++){
+        _butX = _centerX+_diameter*cos((_rotation+_rotMove)*2*pi);
+        _butY = _centerY+_diameter*sin((_rotation+_rotMove)*2*pi);
+        if (i == _real_exit_position){
+            if (_round2){
+                instance_create_layer(_butX, _butY, "Instances", button, {
+                    buttonNumber: 5
+                })
+            }
+            instance_create_layer(_butX, _butY, "Instances", button, {
+                buttonNumber: 4
+            });
         }
-
-        if (global.exit_clicked == true){
-            if (_rotMove >= 1){
-                _rotMove = 0;
-            }
-            if (_rotation >= 1){
-                _rotation = 0;
-            }
-            _real_exit_position = irandom(5);
-            for (var i=0; i<10; i++){
-                _butX = _centerX+_diameter*cos((_rotation+_rotMove)*2*pi);
-                _butY = _centerY+_diameter*sin((_rotation+_rotMove)*2*pi);
-                if (i == _real_exit_position){
-                    if (_round2){
-                        instance_create_layer(_butX, _butY, "Instances", button, {
-                            buttonNumber: 5
-                        })
-                    }
-                    instance_create_layer(_butX, _butY, "Instances", button, {
-                        buttonNumber: 4
-                    });
-                }
-                else {
-                    instance_create_layer(_butX, _butY, "Instances", button, {
-                        buttonNumber: 3
-                    });
-                }
-                _rotation += 0.1;
-            }
-            _rotMove += 0.005;
+        else {
+            instance_create_layer(_butX, _butY, "Instances", button, {
+                buttonNumber: 3
+            });
         }
+        _rotation += 0.1;
+    }
+    _rotMove += 0.005;
+}
                                 </code>
                             </pre>
                     </div>
