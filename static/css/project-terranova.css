@@ -489,3 +489,43 @@ nav {
   font-size: 18px;
   margin: 0;
 }
+
+/* STACK */
+
+#stack {
+  display: flex;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.stack-content {
+  margin: 0 auto;
+}
+
+.stack-content  h2{
+  margin-block-start: 0px;
+  margin-block-end: 10px;
+}
+
+.app-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+}
+
+.app-logos a {
+  color: #ccc;
+  font-size: 50px;
+  margin: 10px 10px;
+}

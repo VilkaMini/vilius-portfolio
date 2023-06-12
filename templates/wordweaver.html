@@ -4,6 +4,7 @@
         <title>Vilius Alaunis</title>
         <link rel="stylesheet" href="/css/project-wordweaver.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
         <link rel="icon" type="image/x-icon" href="/img/VA_white.png">
         <link href="/css/prism.css" rel="stylesheet"/>
         <script src="/js/prism.js"></script>
@@ -65,85 +66,56 @@
                     <div class="development-text">
                         <pre class="code-block">
                             <code class="language-cs">
-public class LetterObject : MonoBehaviour
+private void Update()
 {
-    // Components & Letter
-    public SpriteRenderer rnd;
-    public Collider2D letterCollider;
-    public Letter letter;
-
-    // Waypoints
-    public Transform[] wayPoints;
-    private int currentWayPoint = 0;
-    private Transform targetWayPoint;
-
-    // Variables
-    private bool isColliding = false;
-    private float speed = 2.0f;
-    public int indexOfLetter;
-    public LetterObject nextLetter;
-
-    private void Awake()
+    // If there is next waypoint drive to it
+    if (currentWayPoint < wayPoints.Length)
     {
-        Actions.OnLetterUpdate += GetNextLetter;
+        if (targetWayPoint == null)
+            targetWayPoint = wayPoints[currentWayPoint];
+        DriveLetters();
     }
 
-    private void Start()
+    // Check collision with other letter
+    CheckForNextLetter(nextLetter);
+}
+
+private void DriveLetters()
+{
+    // move towards the target
+    if (!isColliding || indexOfLetter == 0)
     {
-        if (letter){rnd.sprite = letter.Icon;}
+        transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
     }
 
-    private void Update()
+    // Check if letter in position, change target if it is
+    if (transform.position == targetWayPoint.position)
     {
-        // If there is next waypoint drive to it
-        if (currentWayPoint < wayPoints.Length)
+        currentWayPoint++;
+        if (currentWayPoint >= wayPoints.Length){}
+        else
         {
-            if (targetWayPoint == null)
-                targetWayPoint = wayPoints[currentWayPoint];
-            DriveLetters();
-        }
-
-        // Check collision with other letter
-        CheckForNextLetter(nextLetter);
-    }
-
-    private void DriveLetters()
-    {
-        // move towards the target
-        if (!isColliding || indexOfLetter == 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetWayPoint.position, speed * Time.deltaTime);
-        }
-
-        // Check if letter in position, change target if it is
-        if (transform.position == targetWayPoint.position)
-        {
-            currentWayPoint++;
-            if (currentWayPoint >= wayPoints.Length){}
-            else
-            {
-                targetWayPoint = wayPoints[currentWayPoint];
-            }
+            targetWayPoint = wayPoints[currentWayPoint];
         }
     }
+}
 
-    // Checks if letter is colliding next letter
-    private void CheckForNextLetter(LetterObject nextLetter)
+// Checks if letter is colliding next letter
+private void CheckForNextLetter(LetterObject nextLetter)
+{
+    if (indexOfLetter != 0 && nextLetter)
     {
-        if (indexOfLetter != 0 && nextLetter)
-        {
-            isColliding = letterCollider.bounds.Intersects(nextLetter.letterCollider.bounds);
-        }
+        isColliding = letterCollider.bounds.Intersects(nextLetter.letterCollider.bounds);
     }
+}
 
-    // Get next leter from letter conveyor array
-    private void GetNextLetter(List&lt;LetterObject> letterList)
+// Get next leter from letter conveyor array
+private void GetNextLetter(List&lt;LetterObject> letterList)
+{
+    indexOfLetter = letterList.IndexOf(this);
+    if (indexOfLetter > 0)
     {
-        indexOfLetter = letterList.IndexOf(this);
-        if (indexOfLetter > 0)
-        {
-            nextLetter = letterList[indexOfLetter - 1];
-        }
+        nextLetter = letterList[indexOfLetter - 1];
     }
 }
                             </code>
@@ -170,140 +142,106 @@ public class LetterObject : MonoBehaviour
                     <div class="development-text mirrored-text">
                         <pre class="code-block">
                             <code class="language-cs">
-public class TruckLogic : MonoBehaviour
+void TruckLetterDisplay()
 {
-    // Objects and variales
-    public Storage database;
-    public Collider2D truckCol;
-    public Rigidbody2D rb;
-    public GameObject truckPrefab;
-    public int truckNumber;
-
-    // Lists
-    public List&lt;LetterGridObject> slotsLetter;
-    public List&lt;Letter> letterList;
-
-    private bool coroutineRunning;
-    private IEnumerator truckCoroutine;
-    private Vector2 screenBounds;
-
-    void Start()
+    // Reload all sprites inside truck if change happened
+    for (int i=0; i< slotsLetter.Count; i++)
     {
-        // Setup of truck
-        Actions.OnTruckUpdate += TruckLetterDisplay;
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-
-        database = FindObjectOfType&lt;Storage>();
-        LetterGridObject[] gridScripts = this.GetComponentsInChildren&lt;LetterGridObject>();
-        for (int i=0; i< gridScripts.Length; i++)
+        if (i < letterList.Count)
         {
-            slotsLetter[i] = gridScripts[i];
-            slotsLetter[i].GridIndex = i;
-            slotsLetter[i].truckNumber = truckNumber;
-        }
-    }
-
-    void TruckLetterDisplay()
-    {
-        // Reload all sprites inside truck if change happened
-        for (int i=0; i< slotsLetter.Count; i++)
-        {
-            if (i < letterList.Count)
-            {
-                slotsLetter[i].rnd.sprite = letterList[i].Icon;
-                slotsLetter[i].letter = letterList[i];
-            }
-            else
-            {
-                slotsLetter[i].rnd.sprite = null;
-                slotsLetter[i].letter = null;
-            }
-        }
-        // Check if truck has a viable word
-        CheckTruckWord();
-    }
-    private void CheckTruckWord()
-    {
-        //Construct word
-        string word = ConstructWord();
-        if (database.words.Contains(word))
-        {
-            // Start drive off coroutine if word exists, start new if word changed into another viable word
-            if (coroutineRunning)
-            {
-                StopCoroutine(truckCoroutine);
-                coroutineRunning = false;
-            }
-            truckCoroutine = TruckDriveOffCoroutine(word, truckNumber);
-            StartCoroutine(truckCoroutine);
-            coroutineRunning = true;
-        }
-    }
-
-    // Make word from letter objects
-    private string ConstructWord()
-    {
-        List&lt;char> chars = new List&lt;char>();
-        for (int i = 0; i < letterList.Count; i++)
-        {
-            chars.Add(letterList[i].LetterChar);
-        }
-
-        return new string(chars.ToArray());
-    }
-
-    // Truck coroutine
-    private IEnumerator TruckDriveOffCoroutine(string word, int truckNumber)
-    {
-        print("Coroutine Start Truck: " + truckNumber);
-        yield return new WaitForSeconds(1);
-        print("3");
-        yield return new WaitForSeconds(1);
-        print("2");
-        yield return new WaitForSeconds(1);
-        print("1");
-        if (ConstructWord() == word)
-        {
-            transform.position = new Vector3(-0.001f, transform.position.y, transform.position.z);
-            rb.velocity = new Vector2(-2, 0);
-            CountPoints(word);
-            print("Truck Driving Out truck: " + truckNumber);
+            slotsLetter[i].rnd.sprite = letterList[i].Icon;
+            slotsLetter[i].letter = letterList[i];
         }
         else
         {
-            print("Word changed, no truck: " + truckNumber);
+            slotsLetter[i].rnd.sprite = null;
+            slotsLetter[i].letter = null;
         }
     }
-
-    private void CountPoints(string word)
+    // Check if truck has a viable word
+    CheckTruckWord();
+}
+private void CheckTruckWord()
+{
+    //Construct word
+    string word = ConstructWord();
+    if (database.words.Contains(word))
     {
-        database.points += word.Length;
+        // Start drive off coroutine if word exists, start new if word changed into another viable word
+        if (coroutineRunning)
+        {
+            StopCoroutine(truckCoroutine);
+            coroutineRunning = false;
+        }
+        truckCoroutine = TruckDriveOffCoroutine(word, truckNumber);
+        StartCoroutine(truckCoroutine);
+        coroutineRunning = true;
+    }
+}
+
+// Make word from letter objects
+private string ConstructWord()
+{
+    List&lt;char> chars = new List&lt;char>();
+    for (int i = 0; i < letterList.Count; i++)
+    {
+        chars.Add(letterList[i].LetterChar);
     }
 
-    // Drive truck
-    private void Update()
+    return new string(chars.ToArray());
+}
+
+// Truck coroutine
+private IEnumerator TruckDriveOffCoroutine(string word, int truckNumber)
+{
+    print("Coroutine Start Truck: " + truckNumber);
+    yield return new WaitForSeconds(1);
+    print("3");
+    yield return new WaitForSeconds(1);
+    print("2");
+    yield return new WaitForSeconds(1);
+    print("1");
+    if (ConstructWord() == word)
     {
-        // If truck arrived in position stop it
-        if (transform.position.x < 0.05f && transform.position.x > -0.001f)
-        {
-            rb.velocity = new Vector2(0, 0);
-            transform.position = new Vector3(0.0f, transform.position.y, transform.position.z);
-        }
+        transform.position = new Vector3(-0.001f, transform.position.y, transform.position.z);
+        rb.velocity = new Vector2(-2, 0);
+        CountPoints(word);
+        print("Truck Driving Out truck: " + truckNumber);
+    }
+    else
+    {
+        print("Word changed, no truck: " + truckNumber);
+    }
+}
 
-        // If truck drove off the screen spawn new one
-        if (transform.position.x < screenBounds.x * -2f)
-        {
-            GameObject truck = Instantiate(truckPrefab);
-            truck.transform.position = new Vector3(screenBounds.x * 2.0f, this.transform.position.y, this.transform.position.z);
-            TruckLogic script = truck.GetComponent&lt;TruckLogic>();
-            script.truckNumber = truckNumber;
-            script.rb.velocity = new Vector2(-2, 0);
-            database.trucks[truckNumber] = script;
+private void CountPoints(string word)
+{
+    database.points += word.Length;
+}
 
-            // Destroy old truck
-            Actions.OnTruckUpdate -= TruckLetterDisplay;
-            Destroy(this.gameObject);
-        }
+// Drive truck
+private void Update()
+{
+    // If truck arrived in position stop it
+    if (transform.position.x < 0.05f && transform.position.x > -0.001f)
+    {
+        rb.velocity = new Vector2(0, 0);
+        transform.position = new Vector3(0.0f, transform.position.y, transform.position.z);
+    }
+
+    // If truck drove off the screen spawn new one
+    if (transform.position.x < screenBounds.x * -2f)
+    {
+        GameObject truck = Instantiate(truckPrefab);
+        truck.transform.position = new Vector3(screenBounds.x * 2.0f, this.transform.position.y, this.transform.position.z);
+        TruckLogic script = truck.GetComponent&lt;TruckLogic>();
+        script.truckNumber = truckNumber;
+        script.rb.velocity = new Vector2(-2, 0);
+        database.trucks[truckNumber] = script;
+
+        // Destroy old truck
+        Actions.OnTruckUpdate -= TruckLetterDisplay;
+        Destroy(this.gameObject);
     }
 }
                             </code>
@@ -320,6 +258,16 @@ public class TruckLogic : MonoBehaviour
                         </div>
                   </div>
             </section>
+            <footer id="stack" class="full-width-section">
+                <div class="stack-content">
+                    <h2>Technology stack</h2>
+                </div>
+                <div class="app-logos">
+                    <a><i class="devicon-unity-original" title="Unity"></i></a>
+                    <a><i class="devicon-csharp-plain" title="C# Language"></i></a>
+                    <a><i class="devicon-photoshop-plain" title="Photoshop"></i></a>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
