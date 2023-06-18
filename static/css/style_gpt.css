@@ -125,13 +125,16 @@ body {
 
 /* Project Links */
 .project-links {
+  display: inline-flex;
   margin-top: 20px; /* Increase the top margin to create a bigger gap */
+  align-items: center;
+  justify-content: center;
 }
 
 .project-links a {
   color: #ccc; /* Change the color to match the nav bar icon color */
   font-size: 30px; /* Increase the font size for larger icons */
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .project-links a:hover {
@@ -407,4 +410,15 @@ nav {
   color: #ccc;
   font-size: 50px;
   margin: 10px 10px;
+}
+
+
+.read-me-addition {
+  text-decoration: none;
+  color: #bebebe;
+}
+
+.read-me-addition:hover {
+  text-decoration: none;
+  color: #fff;
 }
