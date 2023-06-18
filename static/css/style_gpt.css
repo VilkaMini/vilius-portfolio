@@ -262,9 +262,13 @@ body {
 }
 
 .about-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   flex: 0 0 300px;
   margin-right: 40px;
-  margin-top: 20px; /* Adjust the margin to create space from the top */
+  margin-top: 10px; /* Adjust the margin to create space from the top */
 }
 
 .about-left img {
@@ -277,6 +281,8 @@ body {
 
 .about-right {
   flex: 1;
+  background-color: rgba(17, 17, 17, 0.5);
+  border-radius: 10px;
   text-align: left;
   color: #fff;
   max-width: 600px; /* Adjust the width as desired */
@@ -285,9 +291,12 @@ body {
 .about-right h2 {
   font-size: 36px;
   margin-bottom: 10px;
+  margin-top: 20px;
+  padding-left: 10px;
 }
 
 .about-right p {
+  padding-left: 10px;
   font-size: 18px;
   line-height: 1.5;
 }
