@@ -1,10 +1,10 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template
 
 app = Flask(__name__, static_url_path = "", static_folder = 'static/')
 
 @app.route("/", methods=["GET"])
 def portfolio():
-    return render_template('chatgpt.html')
+    return render_template('index.html')
 
 @app.route("/wildlandsinteractiveexperience/", methods=["GET"])
 def wildlandsexperience():
@@ -17,6 +17,10 @@ def terranova():
 @app.route("/wordweaver/", methods=["GET"])
 def wordweaver():
     return render_template('wordweaver.html')
+
+@app.route("/aboutme/", methods=["GET"])
+def aboutme():
+    return render_template('aboutme.html')
 
 
 if __name__ == "__main__":

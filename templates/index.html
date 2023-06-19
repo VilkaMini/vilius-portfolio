@@ -1,145 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>willalone</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-         crossorigin="anonymous" referrerpolicy="no-referrer" />
-         <link rel="stylesheet" href="/css/style.css">
-         <link rel="icon" href="/img/VA_white.png">
-         <!-- Fonts (need to be updated) -->
-         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans
-         +Pro:300,900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <img src="/img/VA.png" alt="">
+<html>
+<head>
+  <title>Vilius Alaunis</title>
+  <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="icon" type="image/x-icon" href="/img/VA_white.png">
+</head>
+<body>
+  <div class="container">
+      <nav>
+        <div class="nav-left">
+          <img src="/img/VA_white.png" alt="Logo">
+        </div>
+        <div class="nav-middle">
+          <h1>Vilius Alaunis</h1>
+        </div>
+        <div class="nav-right">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/viliusalaunis" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com/vilkamini" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:viliusalaunis@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </nav>
+      <section id="about" class="full-width-section">
+        <div class="about-container">
+          <div class="about-left">
+            <img src="/img/will-photo.jpg" alt="Profile Photo">
+          </div>
+          <div class="about-right">
+            <h2>About Me</h2>
+            <p>I am a 20-year-old student from Lithuania, currently studying Creative Media & Game Technologies.<br><br>Previously worked as a Teacher and a Data Scientist I am pursuing a career in Game Development.<br><br><a href="/aboutme/" class="read-me-addition">Read more about me here!</a></p>
+          </div>
+        </div>
+      </section>
+      <section id="project-section-right" class="full-width-section smaller-section">
+          <div class="projects-container">
+            <div class="project-left">
+              <h2><a href="/wildlandsinteractiveexperience/">Wildlands Interactive Experience</a></h2>
+              <p>Play, feed and learn about an animal, and it's habitat with this interactive on-site Wildlands zoo experience. An edutainment game to be installed at every habitat in the zoo.  <a href="/wildlandsinteractiveexperience/" class="read-me-addition">Read more!</a></p>
+              <div class="project-tags">
+                <div class="tag">
+                  <span class="tag-label">Team Size:</span>
+                  <span class="tag-value">4</span>
+                </div>
+                <div class="tag">
+                  <span class="tag-label">Time:</span>
+                  <span class="tag-value">11 weeks</span>
+                </div>
+                <div class="tag">
+                  <span class="tag-label">Role:</span>
+                  <span class="tag-value">Programmer & Team Lead</span>
+                </div>
+              </div>
+                <div class="project-links">
+                <a href="https://github.com/VilkaMini/Block-III-3D" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://willalone.itch.io/zoo" target="_blank"><i class="fas fa-gamepad"></i></a>
+              </div>
             </div>
-            <!-- <div>
-                <a href="gamedev" class="btn_game">Game Dev</a>
-            </div>-->
-            <button class="nav-toggle" aria-label="toggle nagivation">
-                <span class="hamburger"></span>
-            </button>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About Me</a></li>
-                    <li class="nav__item"><a href="#work" class="nav__link">My Work</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Introduction -->
-
-        <section class="intro" id="home">
-            <h1 class="section__title section__title--intro">
-                Hi, I am <strong>Vilius Alaunis</strong>
-            </h1>
-            <p class="section__subtitle section__subtitle--intro">Data Scientist</p>
-            <img src="/img/will-photo.jpg" alt="a picture of Vilius Alaunis" class="intro__img">
-        </section>
-
-        <!-- My Work -->
-
-        <section class="my-services" id="services">
-            <h2 class="section__title section__title--services">What I do</h2>
-            <div class="services">
-                <div class="service">
-                    <h3>Data Analysis</h3>
-                    <p>The need of useful insights into different data was never higher in the world that we are living in.
-                    I specialize in finding valuable information in data and use it to lead you to elucidation of a particular
-                    problem.</p>
-                </div> <!-- / service-->
-                <div class="service">
-                    <h3>Modeling</h3>
-                    <p>I focus on using machine learning models to provide clients with solutions to their problem.
-                    I investigate each problem individually and arrive at the conclusion of what needs to be done to achieve
-                    the ultimate resolution.</p>
-                </div> <!-- / service-->
-                <div class="service">
-                    <h3>Hobby Projects</h3>
-                    <p>I am working on data and not-data related projects all the time. From predicting my local shop's discounts
-                    into the future to creating websites. In fact, this portfolio was created from scratch to enhance my skills.</p>
-                </div> <!-- / service-->
-            </div> <!-- / services-->
-            <a href="#work" class="btn">My work</a>
-        </section>
-
-        <!-- About Me -->
-
-        <section class="about-me" id="about">
-            <h2 class="section__title section__title--about">Who I am</h2>
-            <p class="section__subtitle section__subtitle--about">Data Scientist based out of Groningen</p>
-            <div class="about-me__body">
-                <p>I am a futurist focused on smart exploitation of resources and sustainability. I am fascinated with technology and modern world and that is why I choose to enter the data domain as it is one of the most efficient ways
-                   to support the search of more innovative and groundbreaking technologies that would help humankind advance further.
-                </p>
-                <p>I am a sagacious individual who can assist others on their decision-making by providing necessary insights of a particular problem. I am also
-                   a rational thinker capable of distinguishing most important goals and focusing on the process of achieving said goals.
-                </p>
+            <div class="project-right">
+              <a href="/wildlandsinteractiveexperience/"><img src="/img/WildlandsExperience/WildlandsRhinoPicture1.png" alt="Wildlands Screenshot"></a>
             </div>
-            <img src="/img/will-standing.JPG" alt="Smiling Vilius standing with a toy bear in his arms" class="about-me__img">
-        </section>
-
-        <!-- My Work -->
-
-        <section class="my-work" id="work">
-            <h2 class="section__title section__title--work">My work</h2>
-            <p class="section__subtitle section__subtitle--work">A selection of my work</p>
-            <div class="portfolio">
-                <!-- Portfolio item-->
-                <a href="https://github.com/VilkaMini/vilius-portfolio/blob/main/work/basic-eda.ipynb" class="portfolio__item">
-                    <img src="/img/exploratory-analysis.png" alt="Exploratory Analysis Jupyter Notebook" class="portfolio__img">
-                    <p class="img__description">Exploratory Data Analysis Project</p>
-                </a>
-                <!-- Portfolio item-->
-                <a href="https://github.com/VilkaMini/vilius-portfolio/blob/main/work/do-not-overfit2.ipynb" class="portfolio__item">
-                    <img src="/img/data-overfit.png" alt="Overfit 2 Jupyter Notebook" class="portfolio__img">
-                    <p class="img__description">Kaggle "Do not Overfit 2" Project</p>
-                </a>
-                <!-- Portfolio item-->
-                <a href="https://github.com/VilkaMini/maxima-discount-scraper" class="portfolio__item">
-                    <img src="/img/maxima-discount.png" alt="Maxima discount scraper" class="portfolio__img">
-                    <p class="img__description">Maxima Discount Scraper Project</p>
-                </a>
+          </div>
+      </section>
+      <section id="project-section-left" class="full-width-section smaller-section">
+          <div class="projects-container">
+            <div class="project-left-left">
+              <a href="/terranova/"><img src="/img/Terranova/terranovaPicture1.png" alt="Terranova Screenshot"></a>
             </div>
-        </section>
-        <!-- Footer -->
-        <footer class="footer">
-            <a href="mailto:viliusalaunis@gmail.com" class="footer__link">viliusalaunis@gmail.com</a>
-            <ul class="social-list">
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.facebook.com/profile.php?id=100008506363844">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/viliusalaunis/">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/VilkaMini">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://twitter.com/vilius_alaunis">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.instagram.com/vilius_alaunis/">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-            </ul>
+              <div class="project-right-left">
+              <h2><a href="/terranova/">Terranova (2nd block)</a></h2>
+              <p>Control an extraterrestrial creature on it's quest to help humans with their daily needs while collecting fallen stars. A single-player adventure with a focus on Evil By Design psychological patterns.  <a href="/terranova/" class="read-me-addition">Read more!</a></p>
+              <div class="project-tags-left">
+                <div class="tag-left">
+                  <span class="tag-label">Team Size:</span>
+                  <span class="tag-value">5</span>
+                </div>
+                <div class="tag-left">
+                  <span class="tag-label">Time:</span>
+                  <span class="tag-value">7 weeks</span>
+                </div>
+                <div class="tag-left">
+                  <span class="tag-label">Role:</span>
+                  <span class="tag-value">Programmer & Team Lead</span>
+                </div>
+              </div>
+                <div class="project-links">
+                <a href="https://github.com/VilkaMini/Block-II-GameMaker-Game" target="_blank"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+      </section>
+      <section id="project-section-right" class="full-width-section smaller-section">
+          <div class="projects-container">
+            <div class="project-left">
+              <h2><a href="/wordweaver/">Wordweaver (Side Project)</a></h2>
+              <p>Become a Wordweaver, construct requested words and do not run out of conveyor space unless you want to meet your worst boss yet - Phat Stacks. A fun and quick game about capitalism and importance of language.  <a href="/wordweaver/" class="read-me-addition">Read more!</a></p>
+              <div class="project-tags">
+                <div class="tag">
+                  <span class="tag-label">Team Size:</span>
+                  <span class="tag-value">4</span>
+                </div>
+                <div class="tag">
+                  <span class="tag-label">Time:</span>
+                  <span class="tag-value">12 weeks</span>
+                </div>
+                <div class="tag">
+                  <span class="tag-label">Role:</span>
+                  <span class="tag-value">Programmer & Team Lead</span>
+                </div>
+              </div>
+                <div class="project-links">
+              </div>
+            </div>
+            <div class="project-right vertical-picture">
+              <a href="/wordweaver/"><img src="/img/Wordweaver/WordweaverPicture1.png" alt="Wordweaver Screenshot"></a>
+            </div>
+          </div>
+      </section>
+      <footer id="stack" class="full-width-section">
+            <div class="stack-content">
+                <h2>Technology stack</h2>
+            </div>
+            <div class="app-logos">
+                <a><i class="devicon-unity-original" title="Unity"></i></a>
+                <a><i class="devicon-csharp-plain" title="C# Language"></i></a>
+                <a><i class="devicon-c-plain" title="C Language"></i></a>
+                <a><i class="devicon-python-plain" title="Python Language"></i></a>
+                <a><i class="devicon-blender-original" title="Blender"></i></a>
+                <a><i class="devicon-illustrator-plain" title="Illustrator"></i></a>
+                <a><i class="devicon-photoshop-plain" title="Photoshop"></i></a>
+                <a><i class="devicon-jira-plain" title="Jira"></i></a>
+                <a><i class="devicon-figma-plain" title="Figma"></i></a>
+                <a><i class="devicon-azure-plain" title="Azure Services"></i></a>
+                <a><i class="fab fa-aws" title="Amazon Web Services"></i></a>
+                <a><i class="devicon-docker-plain" title="Docker"></i></a>
+                <a><i class="devicon-flask-plain" title="Flask"></i></a>
+            </div>
         </footer>
-        <script src="js/index.js"></script>
-    </body>
+  </div>
+</body>
 </html>
