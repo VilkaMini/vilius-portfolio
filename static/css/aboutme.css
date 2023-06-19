@@ -183,3 +183,27 @@ nav {
 .color3 {
   color: #b33731;
 }
+
+footer {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-text {
+  font-size: 28px;
+  color: #fff;
+  margin: 0;
+}
+
+.footer-author {
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+}
