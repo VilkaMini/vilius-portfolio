@@ -97,18 +97,81 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+}
+
+.section-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.section-text {
+  flex: 1;
 }
 
 .section-container h2 {
+  text-align: left;
   color: #fff;
   font-size: 28px;
-  margin-bottom: 10px;
+  margin-top: 0px;
+  margin-bottom: 25px;
 }
 
 .section-container p {
-  color: #ccc;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
   max-width: 600px;
+}
+
+.section-image {
+  flex: 1;
+  text-align: center;
+  width: 400px;
+}
+
+.section-image img {
+  width: 300px;
+  height: auto;
+  border: 2px solid #3e3e3e; /* Add border styling */
+  border-radius: 10px; /* Add rounded corners */
+  overflow: hidden;
+}
+
+/* LIST */
+
+.section-text ul {
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  list-style-type: none;
+  padding: 0;
+}
+
+.section-text li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.section-text li:before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #ccc;
+}
+
+.multi-color .color1 {
+  color: #f2ae1c;
+}
+
+.multi-color .color2 {
+  color: #066437;
+}
+
+.multi-color .color3 {
+  color: #b33731;
 }
