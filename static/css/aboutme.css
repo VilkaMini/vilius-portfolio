@@ -97,7 +97,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: left;
+  text-align: center;
 }
 
 .section-content {
@@ -112,7 +112,7 @@ nav {
 }
 
 .section-container h2 {
-  text-align: left;
+  text-align: center;
   color: #fff;
   font-size: 28px;
   margin-top: 0px;
@@ -123,13 +123,16 @@ nav {
   font-size: 18px;
   line-height: 1.5;
   color: #fff;
-  max-width: 600px;
+  max-width: 800px;
+}
+
+.section-container p a {
+  text-decoration: none;
 }
 
 .section-image {
   flex: 1;
   text-align: center;
-  width: 400px;
 }
 
 .section-image img {
@@ -164,14 +167,14 @@ nav {
   color: #ccc;
 }
 
-.multi-color .color1 {
+.color1 {
   color: #f2ae1c;
 }
 
-.multi-color .color2 {
+.color2 {
   color: #066437;
 }
 
-.multi-color .color3 {
+.color3 {
   color: #b33731;
 }

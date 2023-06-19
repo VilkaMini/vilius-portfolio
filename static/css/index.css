@@ -244,7 +244,7 @@ body {
 
 #about {
   padding: 50px 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/vilnius-panorama.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Aboutme/vilnius-panorama.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
