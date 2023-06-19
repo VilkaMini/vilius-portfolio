@@ -119,6 +119,11 @@ nav {
   margin-bottom: 25px;
 }
 
+#general h2 {
+  padding-left: 18px;
+  text-align: left;
+}
+
 .section-container p {
   font-size: 18px;
   line-height: 1.5;
