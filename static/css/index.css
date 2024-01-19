@@ -435,3 +435,10 @@ nav {
   text-decoration: none;
   color: #fff;
 }
+
+/* Specific */
+
+.fire-gadget-img img{
+  border: 2px solid #3e3e3e; /* Add border styling */
+  border-radius: 25px; /* Add rounded corners */
+}

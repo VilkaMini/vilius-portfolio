@@ -6,6 +6,10 @@ app = Flask(__name__, static_url_path = "", static_folder = 'static/')
 def portfolio():
     return render_template('index.html')
 
+@app.route("/firegadget/", methods=["GET"])
+def firegadget():
+    return render_template('firegadget.html')
+
 @app.route("/wildlandsinteractiveexperience/", methods=["GET"])
 def wildlandsexperience():
     return render_template('wildlandsexperience.html')

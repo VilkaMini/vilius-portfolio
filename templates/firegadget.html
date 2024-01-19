@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Vilius Alaunis</title>
+        <link rel="stylesheet" href="/css/project-firegadget.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+        <link rel="icon" type="image/x-icon" href="/img/Aboutme/VA_white.png">
+        <link href="/css/prism.css" rel="stylesheet"/>
+        <script src="/js/prism.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <div class="nav-left">
+                    <a href="/"><img src="/img/Aboutme/VA_white.png" alt="Logo"></a>
+                </div>
+                <div class="nav-middle">
+                    <h1>Vilius Alaunis</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="social-links">
+                    <a href="https://www.linkedin.com/in/viliusalaunis" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.github.com/vilkamini" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:viliusalaunis@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </nav>
+            <section id="about" class="full-width-section">
+                <div class="about-container">
+                      <div class="about-right">
+                            <h2>Fire Gadget - A firefighter's helper</h2>
+                            <p>An application to assist firefighters in specific car collision cases by streamlining their communication and visual cues between each team member developed for Drenthe Fire Department.</p>
+                            <p>A second block project, an application made for Drenthe Fire Department to help them reduce the time needed for succesfull evacuation of people from a car crash.</p>
+                      </div>
+                </div>
+            </section>
+            <section id="project-details" class="full-width-section">
+                <div class="project-details-container">
+                    <div class="project-detail">
+                        <h3>Game Genre</h3>
+                        <p>Application</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Platform</h3>
+                        <p>Touch Screen Tablet/Phone</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Engine</h3>
+                        <p>Unity</p>
+                    </div>
+                </div>
+            </section>
+            <section id="game-description" class="full-width-section">
+              <div class="game-description-container">
+                <div class="game-description-text">
+                  <h2>About the Development</h2>
+                  <p>As an only programmer I was responsible for 100% of the game's code. I used C# to code main game systems: <strong>3DViewController</strong>, <strong>DrawingViewController</strong>, <strong>NetworkManagerController</strong>.</p>
+                </div>
+                <div class="game-description-image">
+                  <img src="/img/Firegadget/fire-gadget-3d-view-screen.png" alt="Game Image">
+                </div>
+              </div>
+            </section>
+            <section id="development" class="full-width-section">
+                <div class="development-container">
+                    <div class="development-text">
+                        <pre class="code-block">
+                            <code class="language-cs">
+/// &lt;summary>
+/// Coroutine <c>DrawLine</c> is used to facilitate drawing of the line.
+/// &lt;/summary>
+IEnumerator DrawLine()
+{
+    newLine = Instantiate(linePrefab, drawOffset, viewCamPivot.rotation);
+    lineRenderComp = newLine.GetComponent&lt;LineRenderer>();
+    lineRenderComp.positionCount = 0;
+    
+    // Do not kill me this is needed cause the drawing is controlled by stopping the coroutine
+    while (true)
+    {
+        Vector3 position = viewCam.ScreenToWorldPoint(currentTouch.position);
+        lineRenderComp.positionCount++;
+        position -= drawOffset * 0.1f;
+        lineRenderComp.SetPosition(lineRenderComp.positionCount-1, position);
+        yield return null;
+    }
+}
+
+/// &lt;summary>
+/// Method <c>FinalizeLineHit</c> is used to finalize the drawing by casting a ray forward from the position of renderer.
+/// &lt;/summary>
+void FinalizeLineHit()
+{
+    RaycastHit hit;
+    if (Physics.Raycast(lineRenderComp.bounds.center, newLine.transform.forward, out hit, Mathf.Infinity))
+    {
+        Debug.DrawRay(lineRenderComp.bounds.center, newLine.transform.forward * 1000, Color.yellow, duration:500);
+        if (hit.transform.gameObject.tag == "CarPart")
+        {
+            _networkManagerController.allSigns.Add(hit.collider.gameObject.GetComponentInParent&lt;CarSignManager>()
+                .PlaceSignAtLocation(hit.point, stateController.ActiveCarId, _signId));
+        }
+    }
+    
+    Destroy(newLine);
+}
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="development-description-text">
+                        <h2>Drawing Signs</h2>
+                        <p>The Drawing Controller uses a coroutine to create a temporary drawing plane in front of the camera to draw any shape in front of it.<br><br>After the drawing is finished it casts a ray from the middle point of the drawing to apply a sign at that location on the car model.</p>
+                        <div class="development-image">
+                            <img src="/img/Firegadget/drawview-fire-gadget.gif" alt="Draw screen Image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="development-second" class="full-width-section mirrored-section">
+                <div class="development-container">
+                    <div class="development-description-text-mirrored">
+                        <h2>3D-View Controller</h2>
+                        <p>The whole app is coded in a state based design, one of the states is 3D view controller that creates the ability for the person to span around the car. <br><br>Player can also snap to the specific side of the car using buttons at the bottom right of the screen.</p>
+                        <div class="development-image-mirrored">
+                            <img src="/img/Firegadget/3dview-fire-gadget.gif" alt="3D-view Image">
+                        </div>
+                    </div>
+                    <div class="development-text mirrored-text">
+                        <pre class="code-block">
+                            <code class="language-gml">
+/// &lt;summary>
+/// Method <c>DetectInput</c> registers if only one finger is touching the screen and records the begin, stationary and moved positions.
+/// &lt;/summary>
+private void DetectInput()
+{
+    if (inputManager.IsTouchApplied())
+    {
+        Touch currentTouch = inputManager.GetTouch();
+        TouchPhase currentTouchPhase = currentTouch.phase;
+        
+        if (currentTouchPhase == TouchPhase.Began || currentTouchPhase == TouchPhase.Stationary) {
+            _touchBeginPosition = currentTouch.position;
+            _touchMovedPosition = currentTouch.position;
+        }
+        if (currentTouchPhase == TouchPhase.Moved) {
+            _touchMovedPosition = currentTouch.position;
+        }
+        if (currentTouchPhase == TouchPhase.Ended)
+        {
+            _touchBeginPosition = Vector2.zero;
+            _touchMovedPosition = Vector2.zero;
+        }
+
+        _inputDrivenRotation = true;
+    }
+    _inputDrivenRotation = false;
+}
+
+/// &lt;summary>
+/// Method <c>RotateCamera</c> rotates camera pivot point around the target. Deadzones are implemented to safeguard from excessive rotation.
+/// &lt;/summary>
+private void RotateCamera()
+{
+    Vector2 touchMoveDir = _touchBeginPosition - _touchMovedPosition;
+    
+    var rotCheckVal = _pivotRotationY + touchMoveDir.y * cameraSpeedMultiplier;
+    if (rotCheckVal is >= -20 and <= 20)
+    {
+        _pivotRotationY += touchMoveDir.y * cameraSpeedMultiplier;
+    }
+
+    if (touchMoveDir.x is <= -1 or >= 1)
+    {
+        _pivotRotationX += touchMoveDir.x * cameraSpeedMultiplier;
+    }
+
+    if (_inputDrivenRotation)
+    {
+        cameraPivot.transform.rotation = Quaternion.Euler(-_pivotRotationY, -_pivotRotationX, 0);
+    }
+    else
+    {
+        cameraPivot.transform.rotation = Quaternion.Lerp(cameraPivot.transform.rotation, Quaternion.Euler(_pivotRotationY, _pivotRotationX, 0), lerpValue);
+        lerpValue += Time.deltaTime;
+    }
+}
+                                </code>
+                            </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="extras" class="full-width-section">
+                <div class="extras-container">
+                    <h2>Extras</h2>
+                    <div class="extras-items">
+                        <div class="extras-item">
+                            <img src="/img/Firegadget/shader-graph-forcar.png" alt="Extra 1">
+                            <p>Created the shader for the frame of the car.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="picture-showcase" class="full-width-section">
+                  <div class="picture-showcase-container">
+                        <h2>Game Screenshots</h2>
+                        <div class="picture-showcase-images">
+                            <img src="/img/Firegadget/fire-gadget-3d-view-screen.png" alt="Showcase Image 1">
+                            <img src="/img/Firegadget/fire-gadget-draw-screen.png" alt="Showcase Image 2">
+                            <img src="/img/Firegadget/fire-gadget-setup-screen.png" alt="Showcase Image 3">
+                            <img src="/img/Firegadget/fire-gadget-start-screen.png" alt="Showcase Image 4">
+                        </div>
+                  </div>
+            </section>
+            <footer id="stack" class="full-width-section">
+                <div class="stack-content">
+                    <h2>Technology stack</h2>
+                </div>
+                <div class="app-logos">
+                    <a><i class="devicon-unity-original" title="Unity"></i></a>
+                    <a><i class="devicon-csharp-plain" title="C# Language"></i></a>
+                    <a><i class="devicon-blender-original" title="Blender"></i></a>
+                    <a><i class="devicon-photoshop-plain" title="Photoshop"></i></a>
+                    <a><i class="devicon-illustrator-plain" title="Illustrator"></i></a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
