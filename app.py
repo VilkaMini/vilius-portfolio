@@ -6,9 +6,9 @@ app = Flask(__name__, static_url_path = "", static_folder = 'static/')
 def portfolio():
     return render_template('index.html')
 
-@app.route("/firegadget/", methods=["GET"])
-def firegadget():
-    return render_template('firegadget.html')
+@app.route("/CarComResQ/", methods=["GET"])
+def CarComResQ():
+    return render_template('CarComResQ.html')
 
 @app.route("/wildlandsinteractiveexperience/", methods=["GET"])
 def wildlandsexperience():
