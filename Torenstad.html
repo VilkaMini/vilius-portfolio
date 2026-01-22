@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vilius Alaunis</title>
+    <link rel="stylesheet" href="static/css/torenstad.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="icon" type="image/x-icon" href="/img/Aboutme/VA_white.png">
+    <link href="static/css/prism.css" rel="stylesheet" />
+    <script src="static/js/prism.js"></script>
+</head>
+    <body>
+        <div class="container">
+            <nav>
+                <div class="nav-left">
+                    <a href="/"><img src="static/img/Aboutme/VA_white.png" alt="Logo"></a>
+                </div>
+                <div class="nav-middle">
+                    <h1>Vilius Alaunis</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/viliusalaunis" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.github.com/vilkamini" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:viliusalaunis@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </nav>
+            <section id="about" class="full-width-section">
+                <div class="about-container">
+                    <div class="about-right">
+                        <h2>Torenstad</h2>
+                        <p>A game about falling blocks and tower building created in my own free time with the goal to have my own solo game on Steam in less than a semester.</p>
+                        <p>The game focuses on utilization of spacial thinking when controlling the falling blocks of the tower in a 3D space.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="trailer" class="full-width-section">
+                <div class="trailer-container">
+                    <h2>Game Trailer</h2>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Oq-dhmFQ3mc?si=DFROTNsRbB3axSpU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+            <section id="project-details" class="full-width-section">
+                <div class="project-details-container">
+                    <div class="project-detail">
+                        <h3>Game Genre</h3>
+                        <p>Casual, Simulation</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Platform</h3>
+                        <p>PC</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Engine</h3>
+                        <p>Unreal Engine 5</p>
+                    </div>
+                </div>
+            </section>
+            <section id="game-description" class="full-width-section">
+                <div class="game-description-container">
+                    <div class="game-description-text">
+                        <h2>About the Development</h2>
+                        <p>I created 100% of the game's code and visual assets as well as coding my own Steam sdk implementation using C++.</p>
+                    </div>
+                    <div class="game-description-image">
+                        <img src="static/img/Torenstad/Torenstad_Gameplay.gif" alt="Torenstad gameplay">
+                    </div>
+                </div>
+            </section>
+            <section id="development" class="full-width-section">
+                <div class="development-container">
+                    <div class="development-text">
+                        <pre class="code-block">
+                        <code class="language-c">
+/**
+ * Processing function for creating a bitmask for the level with missing blocks represented as 0
+ * and existing blocks represented as 1s.
+ *
+ * @param Level is the a Struct packaged TArray with tower blocks for the specific level.
+ * @return uint16 bitmask.
+ */
+uint32 UProcessingFunctionLibrary::EncodeUnstableLevel(const FLevelBlocks& Level)
+{
+	const TArray&lt;FVector2D> GridSlots = {
+		{-100, -100}, {-100, 0}, {-100, 100},
+		{0, -100},    {0, 0},   {0, 100},
+		{100, -100},  {100, 0}, {100, 100}
+	};
+
+	uint32 Encoded = 0;
+	int32 TypeBitPos = 0; // separate counter for type bits
+
+	for (int32 SlotIndex = 0; SlotIndex < GridSlots.Num(); ++SlotIndex)
+	{
+		const FVector2D& Slot = GridSlots[SlotIndex];
+
+		// Find if a block exists at this slot
+		const FBlockUnitData* FoundBlock = nullptr;
+		for (const FBlockUnitData& Block : Level.Blocks)
+		{
+			if (FMath::IsNearlyEqual(Block.BlockPosition.X, Slot.X, 1.0f) &&
+				FMath::IsNearlyEqual(Block.BlockPosition.Y, Slot.Y, 1.0f))
+			{
+				FoundBlock = &Block;
+				break;
+			}
+		}
+
+		if (FoundBlock)
+		{
+			// Set bit in mask (bit 0–8)
+			Encoded |= (1 << SlotIndex);
+
+			// Store block type sequentially (2 bits per existing block)
+			uint32 TypeBits = static_cast&lt;uint32>(FoundBlock->BlockType) & 0x3;
+			Encoded |= (TypeBits << (9 + TypeBitPos));
+
+			TypeBitPos += 2; // increment only for existing blocks
+		}
+	}
+
+	return Encoded;
+}
+}</code></pre>
+                    </div>
+                    <div class="development-description-text">
+                        <h2>Encoding Levels</h2>
+                        <p>For the game to save the tower data in Steam Leaderboards it needed to be compressed, for that I encoded the unstable level(s) values in bits based on their type (3 types meaning 1 block fits inside 2 bits) saving limited space in Leaderboard details upload. <br><br>Leaderboards on Steam can have 64 32-bit integers so I used couple of them to store the tower high as well as the 10 possible unstable levels to later load them in the game without using any of the saving functionality locally.</p>
+                        <div class="development-image">
+                            <img src="static/img/Torenstad/Torenstad_loadingtower.gif" alt="Loading the other tower data.">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="development-second" class="full-width-section mirrored-section">
+                <div class="development-container">
+                    <div class="development-description-text-mirrored">
+                        <h2>Steam Leaderboards Download</h2>
+                        <p>Using the Steam SDK I downloaded the entries from Steam servers and made sure that the network ID for the player was parsed based on the structure that the AdvancedSessionPlugin was using to create compatability between the implementations.<br><br>This allowed me to use the functions provided by the plugin from my own implementation of the leaderboard entries processing, allowing me to display icons of player as well as other data.</p>
+                        <div class="development-image-mirrored">
+                            <img src="static/img/Torenstad/Torenstad_moretowers.gif" alt="Loading data of more towers.">
+                        </div>
+                    </div>
+                    <div class="development-text mirrored-text">
+                        <pre class="code-block">
+                        <code class="language-c">
+void USteamDownloadLeaderboardAsync::OnDownloadLeaderboard(LeaderboardScoresDownloaded_t* pCallback, bool bIOFailure)
+{
+	if (bIOFailure || !pCallback->m_hSteamLeaderboardEntries)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Steam Leaderboards: Failed to download leaderboard"));
+		OnFailure.Broadcast(false, LeaderboardEntries);
+		return;
+	}
+
+	// Get subsystem (for Steam ID creation)
+	IOnlineSubsystem* OnlineSub = Online::GetSubsystem(GetWorld(), STEAM_SUBSYSTEM);
+	const IOnlineIdentityPtr IdentityInterface = OnlineSub->GetIdentityInterface();
+
+	// Quick check if user is still there
+	if (!SteamUserStats())
+	{
+		UE_LOG(LogTemp, Error, TEXT("Steam Leaderboards: SteamUserStats is null"));
+		OnFailure.Broadcast(false, LeaderboardEntries);
+		return;
+	}
+	
+	// For each entry, iterate over teh entries and create structs with their data
+	for (int i=0; i < pCallback->m_cEntryCount; i++)
+	{
+		LeaderboardEntry_t entry;
+		int32 details[22];
+		SteamUserStats()->GetDownloadedLeaderboardEntry(pCallback->m_hSteamLeaderboardEntries, i, &entry, details, 22);
+
+		TArray&lt;int32> DetailsArray;
+		DetailsArray.Append(details);
+
+		// Convoluted way to cast the SteamID to what Advanced Friends API can use
+		FBPUniqueNetId OutNetId;
+		if (IdentityInterface.IsValid())
+		{
+			const FString SteamIDStr = FString::Printf(TEXT("%llu"), entry.m_steamIDUser.ConvertToUint64());
+			if (TSharedPtr&lt;const FUniqueNetId> UniqueNetId = IdentityInterface->CreateUniquePlayerId(SteamIDStr); UniqueNetId.IsValid())
+			{
+				OutNetId.SetUniqueNetId(UniqueNetId);
+			}
+		}
+		LeaderboardEntries.Add(FLeaderboardEntryData(OutNetId, entry.m_nGlobalRank, entry.m_nScore, entry.m_cDetails, DetailsArray));
+	}
+
+	UE_LOG(LogTemp, Log, TEXT("Steam Leaderboards: Downloaded leaderboard successfully"));
+
+	// Ensure it is on the Game thread because accessing LeaderboardEntries in UI will break Unreal
+	AsyncTask(ENamedThreads::GameThread, [this]()
+	{
+		OnSuccess.Broadcast(true, LeaderboardEntries);
+	});
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <section id="extras" class="full-width-section">
+                <div class="extras-container">
+                    <h2>Extras</h2>
+                    <div class="extras-items">
+                        <div class="extras-item">
+                            <img src="static/img/Torenstad/Torenstad_earlyprototype.gif" alt="Extra 1">
+                            <p>Early development prototype.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="picture-showcase" class="full-width-section">
+                <div class="picture-showcase-container">
+                    <h2>Game Screenshots</h2>
+                    <div class="picture-showcase-images">
+                        <img src="static/img/Torenstad/Torenstad_Mainmenu.png" alt="Showcase Image 1">
+                        <img src="static/img/Torenstad/Torenstad_Headercapsule.png" alt="Showcase Image 2">
+                        <img src="static/img/Torenstad/Torenstad_Maincapsule.png" alt="Showcase Image 3">
+                        <img src="static/img/Torenstad/Torenstad_BlockMovement.gif" alt="Showcase Image 4">
+                    </div>
+                </div>
+            </section>
+            <footer id="stack" class="full-width-section">
+                <div class="stack-content">
+                    <h2>Technology stack</h2>
+                </div>
+                <div class="app-logos">
+                    <a><i class="devicon-unrealengine-original" title="Unreal Engine 5"></i></a>
+                    <a><i class="devicon-cplusplus-plain" title="C++ Language"></i></a>
+                    <a><i class="devicon-rider-plain" title="Jetbrains Rider"></i></a>
+                    <a><i class="devicon-blender-original" title="Blender"></i></a>
+                    <a><i class="devicon-photoshop-plain" title="Photoshop"></i></a>
+                    <a><i class="devicon-illustrator-plain" title="Illustrator"></i></a>
+                    <a><i class="devicon-premierepro-plain" title="Premiere"></i></a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
