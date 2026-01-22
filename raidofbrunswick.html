@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Vilius Alaunis</title>
+        <link rel="stylesheet" href="static/css/raidofbrunswick.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <link rel="icon" type="image/x-icon" href="static/img/Aboutme/VA_white.png">
+        <link href="static/css/prism.css" rel="stylesheet"/>
+        <script src="static/js/prism.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <div class="nav-left">
+                    <a href="/"><img src="static/img/Aboutme/VA_white.png" alt="Logo"></a>
+                </div>
+                <div class="nav-middle">
+                    <h1>Vilius Alaunis</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="social-links">
+                    <a href="https://www.linkedin.com/in/viliusalaunis" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.github.com/vilkamini" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:viliusalaunis@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </nav>
+            <section id="about" class="full-width-section">
+                <div class="about-container">
+                      <div class="about-right">
+                            <h2>The Raid of Brunswick</h2>
+                            <p>An interactive game about a raid of brunswick during World War 2 where you play through 5 crew stations and experience what it was like to be part of a bomber crew.</p>
+                            <p>A IWP (Y4 Semester 1) project focusing in showing hidden heritage of Groningen area.</p>
+                      </div>
+                </div>
+            </section>
+            <section id="trailer" class="full-width-section">
+                <div class="trailer-container">
+                    <h2>Game Teaser</h2>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Bix0WNb1Los?si=V99fbVxvNr1yfAex" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+            <section id="project-details" class="full-width-section">
+                <div class="project-details-container">
+                    <div class="project-detail">
+                        <h3>Game Genre</h3>
+                        <p>Education/Simulation</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Platform</h3>
+                        <p>PC</p>
+                    </div>
+                    <div class="project-detail">
+                        <h3>Engine</h3>
+                        <p>Unreal Engine 5</p>
+                    </div>
+                </div>
+            </section>
+            <section id="game-description" class="full-width-section">
+              <div class="game-description-container">
+                <div class="game-description-text">
+                  <h2>About the Development</h2>
+                  <p>As the Lead Programmer I implemented <strong>modular minigame system</strong> that allowed fast iteration and creation of minigames as well as majority of the minigames functionality.</p>
+                </div>
+                <div class="game-description-image">
+                  <img src="static/img/RaidOfBrunswick/raid_pilotvideo.gif" alt="Raid Of Brunswick pilot video.">
+                </div>
+              </div>
+            </section>
+            <section id="development" class="full-width-section">
+                <div class="development-container">
+                    <div class="development-text">
+                        <a href="static/img/RaidOfBrunswick/raid_minigamecomponentblueprint_1.png" data-lightbox="levels">
+                            <img src="static/img/RaidOfBrunswick/raid_minigamecomponentblueprint_1.png" alt="Minigame Component Picture 1" class="zoom-img">
+                        </a>
+                        <a href="static/img/RaidOfBrunswick/raid_minigamecomponentblueprint_2.png" data-lightbox="levels">
+                            <img src="static/img/RaidOfBrunswick/raid_minigamecomponentblueprint_2.png" alt="Minigame Component Picture 2" class="zoom-img">
+                        </a>
+                    </div>
+                    <div class="development-description-text">
+                        <h2>Minigame Component Parent</h2>
+                        <p>The minigame system utilized inheritance to create a modular system that could be used to create minigame components such as interactables and query commands to them to facilitate the gameplay functionality.<br><br>This system handled timeouts, command queue and input processing within the components to manage them from the director blueprint.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="development-second" class="full-width-section mirrored-section">
+                <div class="development-container">
+                    <div class="development-description-text-mirrored">
+                        <h2>Minigame Implementation</h2>
+                        <p>Using the minigame components I was able to quickly implement each minigame with it's own twist and different control schemes, such as using interaction between objects as well as handling of timed events. <br><br>The pilot minigame required rotation checks in the code for pilot wheel and lever to check whether the player completed their tasks.</p>
+                    </div>
+                    <div class="development-text mirrored-text">
+                        <a href="static/img/RaidOfBrunswick/raid_pilot_stickminigamecode.png" data-lightbox="puzzles">
+                            <img src="static/img/RaidOfBrunswick/raid_pilot_stickminigamecode.png" alt="Pilot minigame stick feature." class="zoom-img">
+                        </a>
+                        <a href="static/img/RaidOfBrunswick/raid_pilot_wheelpitchandyawcheck.png" data-lightbox="puzzles">
+                            <img src="static/img/RaidOfBrunswick/raid_pilot_wheelpitchandyawcheck.png" alt="Pilot minigame wheel feature." class="zoom-img">
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="extras" class="full-width-section">
+                <div class="extras-container">
+                    <h2>Extras</h2>
+                    <div class="extras-items">
+                        <div class="extras-item">
+                            <img src="static/img/RaidOfBrunswick/raid_gunTexturing.png" alt="Extra 1">
+                            <p>Modeled and textured the gunner's gun.</p>
+                        </div>
+                        <div class="extras-item">
+                            <img src="static/img/RaidOfBrunswick/raid_gaugeTexturing.png" alt="Extra 2">
+                            <p>Modeled and textured the gauge.</p>
+                        </div>
+                        <div class="extras-item">
+                            <img src="static/img/RaidOfBrunswick/raid_placeholderplanemodel.png" alt="Extra 3">
+                            <p>Modeled and textured the placeholder plane.</p>
+                        </div>
+                        <div class="extras-item">
+                            <img src="static/img/RaidOfBrunswick/raid_team_logo.png" alt="Extra 4">
+                            <p>Created a team logo for the project.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="picture-showcase" class="full-width-section">
+                  <div class="picture-showcase-container">
+                        <h2>Game Screenshots</h2>
+                        <div class="picture-showcase-images">
+                            <img src="static/img/RaidOfBrunswick/raid_gunnervideo.gif" alt="Showcase Image 1">
+                            <img src="static/img/RaidOfBrunswick/raid_pilot.png" alt="Showcase Image 2">
+                            <img src="static/img/RaidOfBrunswick/raid_wireless_operator.png" alt="Showcase Image 3">
+                            <img src="static/img/RaidOfBrunswick/raid_gamephoto.png" alt="Showcase Image 4">
+                            <img src="static/img/RaidOfBrunswick/raid_gamephoto2.png" alt="Showcase Image 5">
+                        </div>
+                  </div>
+            </section>
+            <footer id="stack" class="full-width-section">
+                <div class="stack-content">
+                    <h2>Technology stack</h2>
+                </div>
+                <div class="app-logos">
+                    <a><i class="devicon-unrealengine-original" title="Unreal Engine"></i></a>
+                    <a><i class="devicon-blender-original" title="Blender"></i></a>
+                    <a><i class="devicon-photoshop-plain" title="Photoshop"></i></a>
+                    <a><i class="devicon-premierepro-plain" title="Premiere pro"></i></a>
+                    <a><i class="devicon-illustrator-plain" title="Illustrator"></i></a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
