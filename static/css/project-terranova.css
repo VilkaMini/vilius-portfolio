@@ -88,7 +88,7 @@ nav {
 
 #about {
   padding: 50px 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Terranova/terranovaPicture2.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/Terranova/terranovaPicture2.png");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -143,7 +143,7 @@ nav {
   flex-direction: column; /* Display the details in a column */
   justify-content: center;
   align-items: center; /* Center the items vertically */
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/Terranova/projects-background.jpg");
 }
 
 .project-details-container {
@@ -185,7 +185,7 @@ nav {
 
 #game-description {
   background-color: #111;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/Terranova/projects-background.jpg");
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -257,7 +257,7 @@ nav {
 #development {
   padding: 20px 0;
   background-color: #111;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/Terranova/projects-background.jpg");
 }
 
 .development-container {
@@ -388,7 +388,7 @@ nav {
 #development-second {
   padding: 20px 0;
   background-color: #111;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/Terranova/projects-background.jpg");
 }
 
 @media (max-width: 800px) {
@@ -412,7 +412,7 @@ nav {
   padding: 20px 0;
   background-color: #111;
   color: #fff;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/Terranova/projects-background.jpg");
 }
 
 .picture-showcase-container {
@@ -449,7 +449,7 @@ nav {
   padding: 20px 0;
   background-color: #111;
   color: #fff;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(/img/projects-background.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/Terranova/projects-background.jpg");
 }
 
 .extras-container {
@@ -501,7 +501,7 @@ nav {
   text-align: center;
   padding: 20px 0;
   background-color: #111;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/Terranova/projects-background.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;

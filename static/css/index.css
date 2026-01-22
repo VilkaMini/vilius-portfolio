@@ -29,7 +29,7 @@ body {
 #project-section-right {
   padding: 50px 0;
   background-color: #111;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/projects-background.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -145,7 +145,7 @@ body {
 #project-section-left {
   padding: 50px 0;
   background-color: #111;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/projects-background.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -244,7 +244,7 @@ body {
 
 #about {
   padding: 50px 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Aboutme/vilnius-panorama.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/Aboutme/vilnius-panorama.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -392,7 +392,7 @@ nav {
   text-align: center;
   padding: 20px 0;
   background-color: #111;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("/img/projects-background.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url("../img/projects-background.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
